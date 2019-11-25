@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# npm packaje-lock
+package-lock.json
+
+# webpack generated files
+dist/
