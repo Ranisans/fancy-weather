@@ -29,6 +29,10 @@
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
+    "start": "webpack-dev-server --history-api-fallback --inline --progress --open --mode development",
+    "clear": "del-cli dist",
+    "build": "npm run clear -s && webpack --progress --mode production",
+    "lint": "eslint ./codejam-image-api/src",
     "test": "mocha"
   },
   "repository": {
