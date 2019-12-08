@@ -75,7 +75,7 @@ module.exports = (env, args) => {
         filename: 'bundle.css',
       }),
       new HtmlWebPackPlugin({
-        template: './codejam-image-api/index.html',
+        template: './fancy-weather/index.html',
         filename: './index.html',
       }),
       new webpack.LoaderOptionsPlugin({
