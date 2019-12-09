@@ -1,3 +1,3 @@
 const measuringScale = { C: 'C', F: 'F' };
 
-export { measuringScale };
+export default measuringScale;

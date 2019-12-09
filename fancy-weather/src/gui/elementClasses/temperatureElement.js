@@ -1,5 +1,5 @@
 import createElement from './createElement';
-import { measuringScale } from '../constants';
+import measuringScale from '../constants';
 
 class TemperatureElement {
   constructor(classes) {
