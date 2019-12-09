@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, args) => {
   const config = {
-    entry: './fancy-weather/src/js/main.js',
+    entry: './fancy-weather/src/index.js',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist'),
