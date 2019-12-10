@@ -1,0 +1,14 @@
+Project:
+  Styles:
+    ☐ Add styles to all blocks
+  Translate:
+    ☐ Add translate for every translatable block
+      ☐ For day of the week add check current day and get translate from base
+  Map:
+    ☐ Add geopositioning after start page
+    ☐ Add open map by coordinates
+    ☐ Add get coordinates by search
+  Weather:
+    ☐ Add get weather by coordinates
+    ☐ Add change background by city and weather
+      ☐ Add change background by daytime @low 
