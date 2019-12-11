@@ -12,6 +12,8 @@ const wind = { en: 'wind', ru: 'ветер', by: 'вецер' };
 
 const humidity = { en: 'humidity', ru: 'влажность', by: 'вільготнасць' };
 
+const measurement = { en: 'm/s', ru: 'м/с', by: 'м/с' };
+
 export {
-  weatherType, feelsLike, wind, humidity,
+  weatherType, feelsLike, wind, humidity, measurement,
 };
