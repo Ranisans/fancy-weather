@@ -1,6 +1,9 @@
 Project:
   Styles:
     ☐ Add styles to all blocks
+    ☐ Add Font
+    ☐ Remove border on mouse push
+    ☐ Add anothe color when push
   Translate:
     ☐ Add translate for every translatable block
       ☐ For day of the week add check current day and get translate from base
