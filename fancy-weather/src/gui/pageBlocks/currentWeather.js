@@ -29,7 +29,7 @@ const createCurrentWeatherBlock = (main) => {
   block.appendChild(feelsLikeBlock);
 
   const feelsLikeText = new TranslatableElement('span', ['feels_like-text']);
-  feelsLikeText.value = feelsLike;
+  feelsLikeText.value(feelsLike);
   feelsLikeBlock.appendChild(feelsLikeText.element);
   translatableElements.push(feelsLikeText);
 
@@ -41,7 +41,7 @@ const createCurrentWeatherBlock = (main) => {
   block.appendChild(windBlock);
 
   const windText = new TranslatableElement('span', ['wind-text']);
-  windText.value = wind;
+  windText.value(wind);
   windBlock.appendChild(windText.element);
   translatableElements.push(windText);
 
@@ -49,7 +49,7 @@ const createCurrentWeatherBlock = (main) => {
   windBlock.appendChild(speed);
 
   const measurementElement = new TranslatableElement('span', ['wind-measurement']);
-  measurementElement.value = measurement;
+  measurementElement.value(measurement);
   windBlock.appendChild(measurementElement.element);
   translatableElements.push(measurementElement);
 
@@ -57,7 +57,7 @@ const createCurrentWeatherBlock = (main) => {
   block.appendChild(humidityBlock);
 
   const humidityText = new TranslatableElement('span', ['humidity-text']);
-  humidityText.value = humidity;
+  humidityText.setValue(humidity);
   humidityBlock.appendChild(humidityText.element);
   translatableElements.push(humidityText);
 
