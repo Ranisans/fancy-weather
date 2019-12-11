@@ -13,7 +13,7 @@ const createWeatherBlock = (mainBlock, baseClass) => {
   block.appendChild(temp.element);
 
   const weatherPict = createElement('img', [`${baseClass}-pict`, 'future_weather_type']);
-  block.appendChild(weatherPict.element);
+  block.appendChild(weatherPict);
 
   return { transElements: [dayOfWeek], tempElements: [temp] };
 };
