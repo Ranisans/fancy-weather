@@ -9,11 +9,11 @@ const createMenu = (main) => {
   const menu = createElement('div', ['menu']);
   main.appendChild(menu);
 
-  const refreshBackgroundBtn = createElement('btn', ['main-refresh_background']);
+  const refreshBackgroundBtn = createElement('button', ['menu-refresh_background']);
   menu.appendChild(refreshBackgroundBtn);
 
   const languages = ['en', 'ru', 'by'];
-  const languageChanger = createElement('select', ['main-language_selector']);
+  const languageChanger = createElement('select', ['menu-language_selector']);
   menu.appendChild(languageChanger);
 
   languages.forEach((language) => {
@@ -23,21 +23,21 @@ const createMenu = (main) => {
     languageChanger.add(option);
   });
 
-  const fRadio = createElement('button', ['main-temp_changer']);
+  const fRadio = createElement('button', ['menu-temp_changer']);
   fRadio.value = measuringScale.F;
   fRadio.innerHTML = '°F';
   menu.appendChild(fRadio);
 
-  const cRadio = createElement('button', ['main-temp_changer', 'main-temp_changer--active']);
+  const cRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer--active']);
   cRadio.value = measuringScale.C;
   cRadio.innerHTML = '°C';
   menu.appendChild(cRadio);
 
-  const searchInput = new SearchInput(['main-search_input']);
+  const searchInput = new SearchInput(['menu-search_input']);
   menu.appendChild(searchInput.element);
   translatableElements.push(searchInput);
 
-  const searchBtn = new TranslatableElement('button', ['main-search_btn']);
+  const searchBtn = new TranslatableElement('button', ['menu-search_btn']);
   menu.appendChild(searchBtn.element);
   translatableElements.push(searchBtn);
 
