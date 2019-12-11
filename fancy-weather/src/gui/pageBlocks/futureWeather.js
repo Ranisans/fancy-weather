@@ -10,8 +10,9 @@ const createFutureWeatherBlock = (main) => {
 
   const weatherBlocksClasses = ['first_day', 'second_day', 'third_day'];
 
-  weatherBlocksClasses.forEach((element) => {
-    const { transElements, tempElements } = createWeatherBlock(block, element);
+  weatherBlocksClasses.forEach((element, i) => {
+    // i + 1 because zero day is a current day
+    const { transElements, tempElements } = createWeatherBlock(block, element, i + 1);
     translatableElements.push(...transElements);
     temperatureElements.push(...tempElements);
   });
