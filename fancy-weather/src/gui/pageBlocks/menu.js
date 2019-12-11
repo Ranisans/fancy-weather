@@ -2,6 +2,7 @@ import createElement from '../elementClasses/createElement';
 import SearchInput from '../elementClasses/searchInput';
 import TranslatableElement from '../elementClasses/translatableElement';
 import measuringScale from '../constants';
+import { placeholder, search } from '../data/searchElements';
 
 const createMenu = (main) => {
   const translatableElements = [];
@@ -34,10 +35,12 @@ const createMenu = (main) => {
   menu.appendChild(cRadio);
 
   const searchInput = new SearchInput(['menu-search_input']);
+  searchInput.setValue(placeholder);
   menu.appendChild(searchInput.element);
   translatableElements.push(searchInput);
 
   const searchBtn = new TranslatableElement('button', ['menu-search_btn']);
+  searchBtn.setValue(search);
   menu.appendChild(searchBtn.element);
   translatableElements.push(searchBtn);
   // temporarily
