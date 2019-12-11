@@ -3,6 +3,7 @@ import createMenu from './pageBlocks/menu';
 import createCurrentWeatherBlock from './pageBlocks/currentWeather';
 import createMapBlock from './pageBlocks/mapBlock';
 import createFutureWeatherBlock from './pageBlocks/futureWeather';
+import '../scss/main.scss';
 
 
 const createGui = () => {
