@@ -23,12 +23,12 @@ const createMenu = (main) => {
     languageChanger.add(option);
   });
 
-  const fRadio = createElement('button', ['menu-temp_changer']);
+  const fRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer_fahrenheit']);
   fRadio.value = measuringScale.F;
   fRadio.innerHTML = '°F';
   menu.appendChild(fRadio);
 
-  const cRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer--active']);
+  const cRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer_celsius', 'menu-temp_changer--active']);
   cRadio.value = measuringScale.C;
   cRadio.innerHTML = '°C';
   menu.appendChild(cRadio);
@@ -40,6 +40,8 @@ const createMenu = (main) => {
   const searchBtn = new TranslatableElement('button', ['menu-search_btn']);
   menu.appendChild(searchBtn.element);
   translatableElements.push(searchBtn);
+  // temporarily
+  searchBtn.element.innerText = 'Search';
 
   return translatableElements;
 };
