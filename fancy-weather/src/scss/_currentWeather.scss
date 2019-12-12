@@ -5,20 +5,32 @@
 
   grid-column: 1;
   grid-row: 3;
-  grid-template-columns: 340px auto;
-  grid-template-rows: 160px 25px 25px 25px auto;
+  grid-template-columns: 350px auto;
+  grid-template-rows: 200px 25px 25px 25px auto;
+
+  font-size: 1.375rem;
+  font-weight: bold;
 
   * {
     margin: 0;
     padding: 0;
+
+    text-transform: uppercase;;
   }
 
   &-temp {
+    font-size: 16.25rem;
+    font-weight: bold;
+
+    text-align: center;
+
     grid-column: 1;
     grid-row: 1 / span 5;
   }
 
   &-pict {
+    width: 160px;
+
     grid-column: 2;
     grid-row: 1;
   }
@@ -26,20 +38,26 @@
   &-type {
     grid-column: 2;
     grid-row: 2;
+
+    justify-self: start;
   }
 
   &-feels_like {
     grid-column: 2;
     grid-row: 3;
+    justify-self: start;
   }
 
   &-wind {
     grid-column: 2;
     grid-row: 4;
+    justify-self: start;
   }
 
   &-humidity {
     grid-column: 2;
     grid-row: 5;
+    justify-self: start;
   }
 }
+
