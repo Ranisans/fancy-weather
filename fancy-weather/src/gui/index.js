@@ -1,9 +1,11 @@
 import createElement from './elementClasses/createElement';
 import createMenu from './pageBlocks/menu';
-import createCurrentWeatherBlock from './pageBlocks/currentWeather';
+import CurrentWeather from './pageBlocks/currentWeather';
 import createMapBlock from './pageBlocks/mapBlock';
 import createFutureWeatherBlock from './pageBlocks/futureWeather';
 import '../scss/main.scss';
+
+import data from './pageBlocks/data';
 
 
 const createGui = () => {
@@ -12,7 +14,9 @@ const createGui = () => {
 
   createMenu(main);
 
-  createCurrentWeatherBlock(main);
+  const currentWeather = new CurrentWeather(main);
+  currentWeather.setData(data);
+  currentWeather.translate('en');
 
   createMapBlock(main);
 
