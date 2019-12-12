@@ -1,4 +1,19 @@
 .map_block {
+  display: grid;
+
   grid-column: 2;
   grid-row: 3 / span 4;
+  grid-template-rows: 400px 25px 25px;
+
+  &-map {
+    grid-row: 1;
+  }
+
+  &-latitude {
+    grid-row: 2;
+  }
+
+  &-longitude {
+    grid-row: 3;
+  }
 }
