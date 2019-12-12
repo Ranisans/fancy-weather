@@ -6,13 +6,13 @@ const weatherType = {
   Thunderstorm: { en: 'thunderstorm', ru: 'ясно', by: 'навальніца' },
 };
 
-const feelsLike = { en: 'feels like', ru: 'по ощущению', by: 'адчуваецца як' };
+const feelsLike = { en: 'feels like: ', ru: 'по ощущению: ', by: 'адчуваецца як: ' };
 
-const wind = { en: 'wind', ru: 'ветер', by: 'вецер' };
+const wind = { en: 'wind: ', ru: 'ветер: ', by: 'вецер: ' };
 
-const humidity = { en: 'humidity', ru: 'влажность', by: 'вільготнасць' };
+const humidity = { en: 'humidity: ', ru: 'влажность: ', by: 'вільготнасць: ' };
 
-const measurement = { en: 'm/s', ru: 'м/с', by: 'м/с' };
+const measurement = { en: ' m/s', ru: ' м/с', by: ' м/с' };
 
 export {
   weatherType, feelsLike, wind, humidity, measurement,
