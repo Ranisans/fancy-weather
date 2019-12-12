@@ -1,7 +1,7 @@
 import createElement from '../elementClasses/createElement';
 import SearchInput from '../elementClasses/searchInput';
 import TranslatableElement from '../elementClasses/translatableElement';
-import measuringScale from '../constants';
+import { measuringScale } from '../constants';
 import { placeholder, search } from '../data/searchElements';
 
 const createMenu = (main) => {

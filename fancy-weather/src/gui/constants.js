@@ -1,3 +1,5 @@
 const measuringScale = { C: 'C', F: 'F' };
 
-export default measuringScale;
+const weatherBlocksClasses = ['first_day', 'second_day', 'third_day'];
+
+export { measuringScale, weatherBlocksClasses };

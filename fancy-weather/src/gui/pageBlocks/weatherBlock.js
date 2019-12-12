@@ -1,22 +1,38 @@
+import WeatherBlock from './AbstractClasses/WeatherBlockClass';
 import createElement from '../elementClasses/createElement';
 import DayOfWeekElement from '../elementClasses/dayOfWeekElement';
 import TemperatureElement from '../elementClasses/temperatureElement';
 
-const createWeatherBlock = (mainBlock, baseClass, turn) => {
-  const block = createElement('div', [baseClass, 'weather_block']);
-  mainBlock.appendChild(block);
+class FutureWeatherBlock extends WeatherBlock {
+  constructor(mainBlock, baseClass, turn) {
+    super();
+    this.translatableElements = [];
+    this.temperatureElements = [];
 
-  const dayOfWeek = new DayOfWeekElement([`${baseClass}-day_of_week`, 'day_of_week']);
-  dayOfWeek.setValue(turn);
-  block.appendChild(dayOfWeek.element);
+    const block = createElement('div', [baseClass, 'weather_block']);
+    mainBlock.appendChild(block);
 
-  const temp = new TemperatureElement([`${baseClass}-temp`, 'future_temp']);
-  block.appendChild(temp.element);
+    this.dayOfWeek = new DayOfWeekElement([`${baseClass}-day_of_week`, 'day_of_week']);
+    this.dayOfWeek.setValue(turn);
+    block.appendChild(this.dayOfWeek.element);
+    this.translatableElements.push(this.dayOfWeek);
 
-  const weatherPict = createElement('img', [`${baseClass}-pict`, 'future_weather_type']);
-  block.appendChild(weatherPict);
+    this.temp = new TemperatureElement([`${baseClass}-temp`, 'future_temp']);
+    block.appendChild(this.temp.element);
 
-  return { transElements: [dayOfWeek], tempElements: [temp] };
-};
+    this.weatherPict = createElement('div', [`${baseClass}-pict`, 'future_weather_type']);
+    block.appendChild(this.weatherPict);
+  }
 
-export default createWeatherBlock;
+  setData(data) {
+    this.temp.setValue(`${Math.floor(data.main.temp)}°`);
+
+    const prefix = 'pic_';
+    const picClassName = `pic_${data.weather[0].icon.slice(0, -1)}`;
+    const classes = this.weatherPict.className.split(' ').filter((c) => !c.startsWith(prefix));
+    this.weatherPict.className = classes.join(' ').trim();
+    this.weatherPict.classList.add(picClassName);
+  }
+}
+
+export default FutureWeatherBlock;
