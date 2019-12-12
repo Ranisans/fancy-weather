@@ -10,7 +10,7 @@ class TranslatableElement {
   }
 
   translate(lang) {
-    this.element.innerHTML = this.value(lang);
+    this.element.innerText = this.value[lang];
   }
 }
 
