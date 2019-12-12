@@ -1,8 +1,17 @@
-@import './menu';
+@import "./menu";
+@import "./currentWeather";
+@import "./mapBlock";
+@import "./futureWeather";
 
 .main {
+  display: grid;
+
   width: 1400px;
   margin: auto;
   padding-top: 20px;
+
   background-color: rgb(216, 216, 216);
+
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px 100px 380px 150px;
 }
