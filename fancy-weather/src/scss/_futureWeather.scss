@@ -1,4 +1,26 @@
 .future_weather {
+  display: grid;
+
+  margin-bottom: 50px;
+  padding-left: 40px;
+
   grid-column: 1;
   grid-row: 4;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.weather_block {
+  height: 110px;
+}
+
+.first_day {
+  grid-column: 1;
+}
+
+.second_day {
+  grid-column: 2;
+}
+
+.third_day {
+  grid-column: 3;
 }
