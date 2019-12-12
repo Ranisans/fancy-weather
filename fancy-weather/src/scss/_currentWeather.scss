@@ -1,4 +1,45 @@
 .current_weather {
+  display: grid;
+
+  padding-left: 40px;
+
   grid-column: 1;
   grid-row: 3;
+  grid-template-columns: 340px auto;
+  grid-template-rows: 160px 25px 25px 25px auto;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-temp {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+  }
+
+  &-pict {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &-type {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  &-feels_like {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  &-wind {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  &-humidity {
+    grid-column: 2;
+    grid-row: 5;
+  }
 }
