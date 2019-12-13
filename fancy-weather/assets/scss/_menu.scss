@@ -5,6 +5,9 @@
   width: 100%;
   padding: 0 40px 0 40px;
 
+  font-size: 0.875rem;
+  font-weight: bold;
+
   grid-column: 1 / span 2;
   grid-row: 1;
 
@@ -45,6 +48,10 @@
 
     -webkit-appearance: none;
        -moz-appearance: none;
+
+    option {
+      background-color: rgba(174, 181, 185, 0.5);
+    }
   }
 
   &-temp_changer {
