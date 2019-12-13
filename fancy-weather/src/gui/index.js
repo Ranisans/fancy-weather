@@ -7,26 +7,33 @@ import { weatherBlocksClasses } from './constants';
 
 import '../../assets/scss/main.scss';
 
-import data from './pageBlocks/data';
+import { data, position } from './pageBlocks/data';
+import DatePositionBlock from './pageBlocks/datePositionBlock';
 
 
 const createGui = () => {
   const main = createElement('main', ['main']);
   document.body.appendChild(main);
+  const temp = createElement('div', ['none']);
+  const language = 'by';
 
   createMenu(main);
 
+  const datePosition = new DatePositionBlock(main);
+  datePosition.setPosition(position);
+  datePosition.translate(language);
+
   const currentWeather = new CurrentWeather(main);
   currentWeather.setData(data);
-  currentWeather.translate('en');
+  currentWeather.translate(language);
 
-  const mapBlock = new MapBlock(main);
-  mapBlock.translate('en');
+  const mapBlock = new MapBlock(temp);
+  mapBlock.translate(language);
 
   const futureWeather = createFutureWeatherBlock(main);
   weatherBlocksClasses.forEach((element) => {
     futureWeather[element].setData(data);
-    futureWeather[element].translate('en');
+    futureWeather[element].translate(language);
   });
 };
 
