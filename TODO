@@ -2,8 +2,7 @@ Project:
   Styles:
     ☐ Add styles to all blocks
     ✔ Add Font @done(19-12-12 17:02)
-    ☐ Remove border on mouse push
-    ☐ Add anothe color when push
+    ✔ Remove border on mouse push @done(19-12-13 10:04) @lasted(16m10s)
   Translate:
     ✔ Add translate for every translatable block @done(19-12-11 17:02)
       ✔ For day of the week add check current day and get translate from base @done(19-12-11 17:02)
@@ -17,4 +16,7 @@ Project:
       ☐ Add change background by daytime @low 
   Main:
     ☐ Add Speech Recording @high
-    ☐ Change WeatherBlock to class
+    ✔ Change WeatherBlock to class @done(19-12-13 09:47)
+  Extra:
+    ✔ Temp block (div -> 2span C&F, above - div - rotated and moved). Temp changed on every click @done(19-12-13 10:47)
+    ☐ Search button - after press - transform ???
