@@ -22,7 +22,7 @@ class DatePositionBlock extends TranslatableBlock {
     this.dayOfWeek.setValue(0);
     this.translatableElements.push(this.dayOfWeek);
 
-    this.date = createElement('p', ['date_block-date']);
+    this.date = createElement('span', ['date_block-date']);
     dateBlock.appendChild(this.date);
 
     this.month = new TranslatableElement('span', ['date_block-month']);
@@ -40,7 +40,7 @@ class DatePositionBlock extends TranslatableBlock {
   setDate(data) {
     console.log('TCL: DatePositionBlock -> setDate -> data', data);
     // need send data to elements
-    this.date.innerText = new Date().getDate();
+    this.date.innerText = 13;
   }
 }
 
