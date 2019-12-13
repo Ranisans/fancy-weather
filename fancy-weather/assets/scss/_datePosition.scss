@@ -4,6 +4,9 @@
   grid-column: 1;
   grid-row: 2;
 
+  @media #{$information_mobile} {
+    padding-left: 20px;
+  }
   &-position {
     margin: 5px 0;
 
@@ -11,11 +14,17 @@
     font-weight: bold;
 
     text-transform: uppercase;
+
+    @media #{$information_mobile} {
+      font-size: 1.75rem;
+    }
   }
 }
 
 .date_block {
   display: flex;
+
+  margin: 5px 0;
 
   font-size: 1.5rem;
   font-weight: 600;
