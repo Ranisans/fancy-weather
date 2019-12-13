@@ -14,8 +14,17 @@
     padding: 0;
 
     border: none;
+    outline: none;
 
     text-transform: uppercase;
+  }
+
+  &-refresh_background, &-language_selector, &-temp_changer, &-search_btn, &-search_input {
+    &:hover {
+      background-color: rgba(228, 217, 157, 0.253);
+
+      transition-duration: 1s;
+    }
   }
 
   &-refresh_background {
@@ -39,22 +48,69 @@
   }
 
   &-temp_changer {
-    width: 44px;
+    position: relative;
 
+    display: flex;
+
+    width: 88px;
+    margin-left: 10px;
+
+    border-radius: 7px;
     background-color: rgba(76, 82, 85, 0.4);
 
-    &_fahrenheit {
-      margin-left: 10px;
+    cursor: pointer;
 
-      border-radius: 7px 0 0 7px;
+    * {
+      box-sizing: border-box;
+      width: 44px;
     }
 
-    &_celsius {
+    &-celsius, &-fahrenheit {
+      padding-top: 13px;
+
+      text-align: center;
+    }
+
+    &-celsius {
       border-radius: 0 7px 7px 0;
     }
 
-    &--active {
-      background-color: rgba(174, 181, 185, 0.5);
+    &-fahrenheit {
+      border-radius: 7px 0 0 7px;
+    }
+
+    &-current {
+      position: absolute;
+      right: 0;
+
+      border-radius: 0 7px 7px 0;
+      background-color: rgba(0, 255, 255, 0.432);
+
+      &--fahrenheit {
+        animation: tempChange 0.5s linear 0s 1 alternate both;
+      }
+    }
+
+    @keyframes tempChange {
+      from {
+        right: 0;
+      }
+      25% {
+        right: 20px;
+      }
+      50% {
+        border-radius: 7px 0 0 7px;
+      }
+      75% {
+        right: 24px;
+
+        border-radius: 7px 0 0 7px;
+      }
+      100% {
+        right: 44px;
+
+        border-radius: 7px 0 0 7px;
+      }
     }
   }
 

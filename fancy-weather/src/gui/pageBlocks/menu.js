@@ -1,7 +1,6 @@
 import createElement from '../elementClasses/createElement';
 import SearchInput from '../elementClasses/searchInput';
 import TranslatableElement from '../elementClasses/translatableElement';
-import { measuringScale } from '../constants';
 import { placeholder, search } from '../data/searchElements';
 
 const createMenu = (main) => {
@@ -24,15 +23,20 @@ const createMenu = (main) => {
     languageChanger.add(option);
   });
 
-  const fRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer_fahrenheit']);
-  fRadio.value = measuringScale.F;
-  fRadio.innerHTML = '°F';
-  menu.appendChild(fRadio);
+  const tempBlock = createElement('div', ['menu-temp_changer']);
+  menu.appendChild(tempBlock);
 
-  const cRadio = createElement('button', ['menu-temp_changer', 'menu-temp_changer_celsius', 'menu-temp_changer--active']);
-  cRadio.value = measuringScale.C;
+  const fRadio = createElement('div', ['menu-temp_changer-fahrenheit']);
+  fRadio.innerHTML = '°F';
+  tempBlock.appendChild(fRadio);
+
+  const cRadio = createElement('div', ['menu-temp_changer-celsius']);
   cRadio.innerHTML = '°C';
-  menu.appendChild(cRadio);
+  tempBlock.appendChild(cRadio);
+
+  const currentMeasurement = createElement('div', ['menu-temp_changer-current']);
+  tempBlock.appendChild(currentMeasurement);
+
 
   const searchInput = new SearchInput(['menu-search_input']);
   searchInput.setValue(placeholder);
