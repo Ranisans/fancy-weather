@@ -1,7 +1,7 @@
 import createElement from './elementClasses/createElement';
 import createMenu from './pageBlocks/menu';
 import CurrentWeather from './pageBlocks/currentWeather';
-import createMapBlock from './pageBlocks/mapBlock';
+import MapBlock from './pageBlocks/mapBlock';
 import createFutureWeatherBlock from './pageBlocks/futureWeather';
 import { weatherBlocksClasses } from './constants';
 
@@ -20,7 +20,8 @@ const createGui = () => {
   currentWeather.setData(data);
   currentWeather.translate('en');
 
-  createMapBlock(main);
+  const mapBlock = new MapBlock(main);
+  mapBlock.translate('en');
 
   const futureWeather = createFutureWeatherBlock(main);
   weatherBlocksClasses.forEach((element) => {
