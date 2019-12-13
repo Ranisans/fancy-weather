@@ -4,16 +4,29 @@
   grid-column: 2;
   grid-row: 3 / span 4;
   grid-template-rows: 400px 25px 25px;
+  
+  box-sizing: border-box;
+
+  padding-left: 250px;
+  padding-right: 90px;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25rem;
 
   &-map {
     grid-row: 1;
+
+    border-radius: 45px;
   }
 
   &-latitude {
+    justify-self: right;
     grid-row: 2;
   }
 
   &-longitude {
+    justify-self: right;
     grid-row: 3;
   }
 }
