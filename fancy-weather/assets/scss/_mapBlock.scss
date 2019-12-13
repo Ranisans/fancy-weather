@@ -1,32 +1,47 @@
 .map_block {
   display: grid;
 
-  grid-column: 2;
-  grid-row: 3 / span 4;
-  grid-template-rows: 400px 25px 25px;
-  
   box-sizing: border-box;
 
-  padding-left: 250px;
-  padding-right: 90px;
+  font-size: 1.25rem;
+  font-weight: 600;
 
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1.25rem;
 
+  grid-column: 2;
+  grid-row: 3 / span 4;
+  grid-template-rows: 400px 50px 50px;
+
+  @media #{$information_desktop} {
+    padding-right: 90px;
+    padding-left: 250px;
+  }
+
+  @media #{$information_tablets} {
+    padding-right: 20px;
+    padding-left: 10px;
+    grid-template-rows: 340px 50px 30px;
+  }
+
+  @media #{$information_mobile} {
+    display: none;
+  }
+  
   &-map {
-    grid-row: 1;
-
     border-radius: 45px;
+    background-color: cadetblue;
+
+    grid-row: 1;
   }
 
   &-latitude {
-    justify-self: right;
+    padding-top: 20px;
     grid-row: 2;
+    justify-self: right;
   }
 
   &-longitude {
-    justify-self: right;
     grid-row: 3;
+    justify-self: right;
   }
 }

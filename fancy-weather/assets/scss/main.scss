@@ -4,7 +4,7 @@
 @import "./futureWeather";
 @import "./weatherIcon";
 @import "./abstract/fonts";
-@import './datePosition';
+@import "./datePosition";
 @import "./abstract/media.scss";
 
 body {
@@ -37,7 +37,6 @@ body {
     width: 320px;
 
     grid-template-rows: 100px 100px 380px 150px;
-
   }
 
 
