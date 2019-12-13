@@ -1,0 +1,22 @@
+.date_position {
+  padding-left: 40px;
+
+  grid-column: 1;
+  grid-row: 2;
+
+  &-position {
+    margin: 5px 0;
+
+    font-size: 2.75rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+  }
+}
+
+.date_block {
+  display: flex;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+}
