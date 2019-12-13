@@ -4,18 +4,38 @@
 @import "./futureWeather";
 @import "./weatherIcon";
 @import "./abstract/fonts";
+@import "./abstract/media.scss";
+
+body {
+  background-color: rgb(197, 194, 194);
+}
 
 .main {
   display: grid;
 
-  width: 1400px;
+  box-sizing: border-box;
   margin: auto;
   padding-top: 20px;
 
-  background-color: rgb(122, 120, 120);
+  background-color: rgb(143, 141, 141);
 
-  grid-template-columns: 650px auto;
-  grid-template-rows: 50px 100px 380px 150px;
+
+  @media #{$information_desktop} {
+    width: 1400px;
+
+    grid-template-columns: 650px auto;
+    grid-template-rows: 50px 100px 380px 150px;
+  }
+  @media #{$information_tablets} {
+    width: 940px;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px 100px 380px 150px;
+  }
+  @media #{$information_mobile} {
+    width: 320px;
+  }
+
 
   * {
     font-family: "Montserrat", sans-serif;
