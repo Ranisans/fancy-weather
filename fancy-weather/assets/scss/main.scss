@@ -23,17 +23,20 @@ body {
   @media #{$information_desktop} {
     width: 1400px;
 
-    grid-template-columns: 650px auto;
+    grid-template-columns: 700px auto;
     grid-template-rows: 50px 100px 380px 150px;
   }
   @media #{$information_tablets} {
     width: 940px;
 
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 550px;
     grid-template-rows: 50px 100px 380px 150px;
   }
   @media #{$information_mobile} {
     width: 320px;
+
+    grid-template-rows: 100px 100px 380px 150px;
+
   }
 
 

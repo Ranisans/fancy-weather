@@ -3,13 +3,29 @@
 
   padding-left: 40px;
 
-  grid-column: 1;
-  grid-row: 3;
-  grid-template-columns: 350px auto;
-  grid-template-rows: 200px 25px 25px 25px auto;
-
-  font-size: 1.375rem;
   font-weight: bold;
+
+  @media #{$information_desktop} {
+    font-size: 1.375rem;
+
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: 400px auto;
+    grid-template-rows: 200px 25px 25px 25px auto;
+  }
+
+  @media #{$information_tablets} {
+    font-size: 1rem;
+
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 200px 25px 25px 25px auto;
+  }
+
+  @media #{$information_mobile} {
+    
+  }
 
   * {
     margin: 0;
@@ -19,26 +35,41 @@
   }
 
   &-temp {
-    font-size: 16.25rem;
     font-weight: bold;
 
     text-align: center;
 
     grid-column: 1;
     grid-row: 1 / span 5;
+    @media #{$information_desktop} {
+      font-size: 16.25rem;
+    }
+    @media #{$information_tablets} {
+      font-size: 13.25rem;
+    }
+    @media #{$information_mobile} {
+    }
   }
 
   &-pict {
-    width: 160px;
-
+    
     grid-column: 2;
     grid-row: 1;
+    
+    @media #{$information_desktop} {
+      width: 200px;
+    }
+    @media #{$information_tablets} {
+      width: 160px;
+    }
+    @media #{$information_mobile} {
+    
+    }
   }
 
   &-type {
     grid-column: 2;
     grid-row: 2;
-
     justify-self: start;
   }
 
@@ -60,4 +91,3 @@
     justify-self: start;
   }
 }
-
