@@ -19,6 +19,9 @@ Project:
     ☐ Add Speech Recording @high
     ✔ Change WeatherBlock to class @done(19-12-13 09:47)
     ☐ Add position and time blocks
+    ☐ https://ipgeolocation.io/documentation/timezone-api.html - timezone
+    ☐ https://opencagedata.com - town to coordinates and "town, country"
+    
   Extra:
     ✔ Temp block (div -> 2span C&F, above - div - rotated and moved). Temp changed on every click @done(19-12-13 10:47)
     ☐ Search button - after press - transform ???
