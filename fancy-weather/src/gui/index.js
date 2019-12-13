@@ -5,7 +5,7 @@ import createMapBlock from './pageBlocks/mapBlock';
 import createFutureWeatherBlock from './pageBlocks/futureWeather';
 import { weatherBlocksClasses } from './constants';
 
-import '../scss/main.scss';
+import '../../assets/scss/main.scss';
 
 import data from './pageBlocks/data';
 
