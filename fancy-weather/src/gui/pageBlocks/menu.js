@@ -37,7 +37,7 @@ class MenuBlock extends TranslatableBlock {
     cRadio.innerHTML = '°C';
     tempBlock.appendChild(cRadio);
 
-    const currentMeasurement = createElement('div', ['menu-temp_changer-current']);
+    const currentMeasurement = createElement('div', ['menu-temp_changer-current', 'menu-temp_changer-current--no_animation']);
     tempBlock.appendChild(currentMeasurement);
 
 

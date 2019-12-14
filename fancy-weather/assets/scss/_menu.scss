@@ -31,7 +31,7 @@
     text-transform: uppercase;
   }
 
-  &-refresh_background, &-language_selector, &-temp_changer, &-search_btn, &-search_input {
+  &-refresh_background, &-language_selector, &-search_btn, &-search_input {
     &:hover {
       background-color: rgba(228, 217, 157, 0.253);
 
@@ -102,20 +102,29 @@
       border-radius: 0 7px 7px 0;
       background-color: rgba(0, 255, 255, 0.432);
 
+      animation: tempChangeRight 0.5s linear 0s 1 alternate both;
+
       &--fahrenheit {
-        animation: tempChange 0.5s linear 0s 1 alternate both;
+        animation: tempChangeLeft 0.5s linear 0s 1 alternate both;
+      }
+
+      &--no_animation {
+        animation: none;
       }
     }
 
-    @keyframes tempChange {
+    @keyframes tempChangeLeft {
       from {
         right: 0;
+
+        border-radius: 0 7px 7px 0;
       }
       25% {
         right: 20px;
+
+        border-radius: 0 7px 7px 0;
       }
-      50% {
-        border-radius: 7px 0 0 7px;
+      35%, 65% {
       }
       75% {
         right: 24px;
@@ -128,16 +137,40 @@
         border-radius: 7px 0 0 7px;
       }
     }
+
+    @keyframes tempChangeRight {
+      from {
+        right: 44px;
+
+        border-radius: 7px 0 0 7px;
+      }
+      25% {
+        right: 24px;
+
+        border-radius: 7px 0 0 7px;
+      }
+      35%, 65% {
+      }
+      75% {
+        right: 20px;
+
+        border-radius: 0 7px 7px 0;
+      }
+      100% {
+        right: 0px;
+
+        border-radius: 0 7px 7px 0;
+      }
+    }
   }
 
   &-search_input {
     width: 274px;
     margin-left: auto;
+    padding: 0 10px;
 
     border-radius: 7px 0 0 7px;
     background: rgba(76, 82, 85, 0.4);
-
-    padding: 0 10px;
 
     text-align: center;
 
