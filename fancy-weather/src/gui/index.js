@@ -3,10 +3,10 @@ import MenuBlock from './pageBlocks/menu';
 import CurrentWeather from './pageBlocks/currentWeather';
 import MapBlock from './pageBlocks/mapBlock';
 import createFutureWeatherBlock from './pageBlocks/futureWeather';
-import { weatherBlocksClasses } from './constants';
 
 import '../../assets/scss/main.scss';
 
+import { weatherBlocksClasses, blocksName } from './constants';
 import { data, position } from './pageBlocks/data';
 import DatePositionBlock from './pageBlocks/datePositionBlock';
 
@@ -19,22 +19,30 @@ const createGui = () => {
   const menuBlock = new MenuBlock(main);
   menuBlock.translate(language);
 
-  const datePosition = new DatePositionBlock(main);
-  datePosition.setPosition(position);
-  datePosition.translate(language);
+  const dateBlock = new DatePositionBlock(main);
+  dateBlock.setPosition(position);
+  dateBlock.translate(language);
 
-  const currentWeather = new CurrentWeather(main);
-  currentWeather.setData(data);
-  currentWeather.translate(language);
+  const currentWeatherBlock = new CurrentWeather(main);
+  currentWeatherBlock.setData(data);
+  currentWeatherBlock.translate(language);
 
   const mapBlock = new MapBlock(main);
   mapBlock.translate(language);
 
-  const futureWeather = createFutureWeatherBlock(main);
+  const futureWeatherBlock = createFutureWeatherBlock(main);
   weatherBlocksClasses.forEach((element) => {
-    futureWeather[element].setData(data);
-    futureWeather[element].translate(language);
+    futureWeatherBlock[element].setData(data);
+    futureWeatherBlock[element].translate(language);
   });
+
+  return {
+    [blocksName[0]]: menuBlock,
+    [blocksName[1]]: dateBlock,
+    [blocksName[2]]: currentWeatherBlock,
+    [blocksName[3]]: mapBlock,
+    [blocksName[4]]: futureWeatherBlock,
+  };
 };
 
 export default createGui;
