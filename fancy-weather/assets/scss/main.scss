@@ -1,3 +1,4 @@
+@import "./abstract/media.scss";
 @import "./menu";
 @import "./currentWeather";
 @import "./mapBlock";
@@ -5,7 +6,7 @@
 @import "./weatherIcon";
 @import "./abstract/fonts";
 @import "./datePosition";
-@import "./abstract/media.scss";
+
 
 body {
   background-color: rgb(197, 194, 194);
