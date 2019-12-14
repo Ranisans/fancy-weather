@@ -7,7 +7,7 @@ class SearchInput extends TranslatableElement {
   }
 
   translate(lang) {
-    this.element.placeholder = this.value(lang);
+    this.element.placeholder = this.value[lang];
   }
 }
 
