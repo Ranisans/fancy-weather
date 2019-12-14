@@ -12,6 +12,7 @@ class MapBlock extends TranslatableBlock {
     main.appendChild(block);
 
     const map = createElement('div', ['map_block-map']);
+    map.id = 'map';
     block.appendChild(map);
 
     const latitudeElement = createElement('div', ['map_block-latitude']);
