@@ -7,6 +7,7 @@
     "@babel/core": "^7.6.0",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.7.4",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "css-loader": "^3.2.0",
@@ -18,6 +19,7 @@
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "mini-css-extract-plugin": "^0.8.0",
     "mocha": "^6.2.2",
     "node-sass": "^4.13.0",
@@ -33,7 +35,7 @@
     "clear": "del-cli dist",
     "build": "npm run clear -s && webpack --progress --mode production",
     "lint": "eslint ./fancy-weather/src",
-    "test": "mocha"
+    "test": "mocha --require @babel/register --require test/init.js --recursive"
   },
   "repository": {
     "type": "git",
