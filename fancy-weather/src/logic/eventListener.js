@@ -21,6 +21,7 @@ const eventListener = async (blockHandler) => {
   const getGeocoding = async (townName) => {
     const { city, country, geometry } = await getCoordinatesByTown(townName, currentLanguage);
     currentCity = city;
+    currentCountry = country;
     currentPosition = geometry;
     return { position: `${city}, ${country}`, geometry };
   };
