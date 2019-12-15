@@ -13,7 +13,20 @@ const eventListener = async (blockHandler) => {
   let currentLanguage = lngCode.en;
   let isCelsiusScale = true;
 
-  const getGeocoding = async (townName) => getCoordinatesByTown(townName, currentLanguage);
+  let weatherType;
+  let currentCity;
+  let currentCountry;
+  let localDate;
+
+  const getGeocoding = async (townName) => {
+    const { city, country, geometry } = await getCoordinatesByTown(townName, currentLanguage);
+    if (city.includes(' ')) {
+      currentCity = undefined;
+    } else {
+      currentCity = city;
+    }
+    return { position: `${city}, ${country}`, geometry };
+  };
 
   const getTime = async () => getLocalTime(currentPosition);
 
@@ -31,6 +44,9 @@ const eventListener = async (blockHandler) => {
     const temperatureArray = await getWeatherForecastForFiveDays(
       currentPosition, measurement[isCelsiusScale],
     );
+    const currentWeather = temperatureArray[0];
+    weatherType = currentWeather.weather[0].main;
+
     blockHandler.setTemp(temperatureArray);
   };
 
@@ -38,15 +54,17 @@ const eventListener = async (blockHandler) => {
     blockHandler.translate(currentLanguage);
   };
 
+  const setBackground = () => { };
+
   const initCurrentLocation = async () => {
     currentPosition = await getDefaultPosition();
-    const { formatted } = await getGeocoding(
+    const { position } = await getGeocoding(
       `${currentPosition.lat}+${currentPosition.lng}`,
       currentLanguage,
     );
 
-    const localDate = await getTime();
-    setDatePosition({ date: localDate, position: formatted });
+    localDate = await getTime();
+    setDatePosition({ date: localDate, position });
 
     await setMapPosition(currentPosition);
     showCoordinates();
@@ -55,10 +73,10 @@ const eventListener = async (blockHandler) => {
   };
 
   const showDataBySearchRequest = async (townName) => {
-    const { formatted, geometry } = await getGeocoding(townName);
+    const { position, geometry } = await getGeocoding(townName);
     currentPosition = geometry;
-    const localDate = await getTime();
-    setDatePosition({ date: localDate, position: formatted });
+    localDate = await getTime();
+    setDatePosition({ date: localDate, position });
 
     await setMapPosition(currentPosition);
     showCoordinates();
