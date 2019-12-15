@@ -7,6 +7,7 @@ import getCoordinatesByTown from './geocoding';
 import getLocalTime from './localTime';
 import { languageCode as lngCode } from '../gui/constants';
 import getBackgroundImage from './getBackgroundImage';
+import initSpeech from './speech';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
@@ -162,6 +163,8 @@ const eventListener = async (blockHandler) => {
       currentLanguage = language;
       languageChanger.value = language;
     }
+
+    initSpeech(main, searchInput);
 
     await initCurrentLocation();
   };
