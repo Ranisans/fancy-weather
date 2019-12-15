@@ -12,8 +12,11 @@ const getCoordinatesByTown = async (townName, languageCode) => {
   const json = await response.json();
 
   const townData = json.results[0];
-  const formatted = `${townData.components.state} / ${townData.components.country}`;
-  return { formatted, geometry: townData.geometry };
+  return {
+    city: townData.components.state,
+    country: townData.components.country,
+    geometry: townData.geometry,
+  };
 };
 
 export default getCoordinatesByTown;
