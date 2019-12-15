@@ -18,6 +18,16 @@ class BlocksHandler {
       }
     });
   }
+
+  setTemp(temperatureArray) {
+    const [current, ...next] = temperatureArray;
+    const { currentWeatherBlock, futureWeatherBlock } = this.blocks;
+    currentWeatherBlock.setData(current);
+
+    weatherBlocksClasses.forEach((element, i) => {
+      futureWeatherBlock[element].setData(next[i]);
+    });
+  }
 }
 
 export default BlocksHandler;
