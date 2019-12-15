@@ -105,6 +105,7 @@ const eventListener = async (blockHandler) => {
   const cTemp = document.querySelector('.menu-temp_changer-celsius');
   const currentTemp = document.querySelector('.menu-temp_changer-current');
   const languageChanger = document.querySelector('.menu-language_selector');
+  const refreshImage = document.querySelector('.menu-refresh_background');
 
   menu.addEventListener('click', (event) => {
     const { target } = event;
@@ -118,6 +119,8 @@ const eventListener = async (blockHandler) => {
       if (searchString) {
         showDataBySearchRequest(searchString);
       }
+    } else if (target === refreshImage) {
+      setBackground();
     }
   });
 
@@ -125,6 +128,18 @@ const eventListener = async (blockHandler) => {
     if (event.target === languageChanger) {
       currentLanguage = lngCode[event.target.value];
       setLanguage();
+    }
+  });
+
+  menu.addEventListener('keypress', (event) => {
+    if (event.target === searchInput) {
+      const key = event.which || event.keyCode;
+      if (key === 13) { // 13 is enter
+        const searchString = searchInput.value;
+        if (searchString) {
+          showDataBySearchRequest(searchString);
+        }
+      }
     }
   });
 };
