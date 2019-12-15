@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import MapClass from './map';
 import getDefaultPosition from './geolocation';
 import getWeatherForecastForFiveDays from './weatherForecast';
@@ -12,6 +13,8 @@ const eventListener = async (blockHandler) => {
   const getGeocoding = async (
     townName, languageCode,
   ) => getCoordinatesByTown(townName, languageCode);
+
+  const getLocalTime = async () => getLocalTime(currentPosition);
 
   const setMapPosition = () => { map.setMapCenter(currentPosition); };
 
