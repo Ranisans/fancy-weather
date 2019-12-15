@@ -37,6 +37,11 @@ class BlocksHandler {
       futureWeatherBlock[element].setDate(thisDate);
     });
   }
+
+  setCoordinates(coordinates) {
+    const { mapBlock } = this.blocks;
+    mapBlock.setCoordinates(coordinates);
+  }
 }
 
 export default BlocksHandler;

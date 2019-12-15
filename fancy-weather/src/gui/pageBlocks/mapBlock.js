@@ -23,8 +23,8 @@ class MapBlock extends TranslatableBlock {
     latitudeElement.appendChild(latitudeText.element);
     this.translatableElements.push(latitudeText);
 
-    const latitudeValue = createElement('span', ['latitude-value', 'coordinates_value']);
-    latitudeElement.appendChild(latitudeValue);
+    this.latitudeValue = createElement('span', ['latitude-value', 'coordinates_value']);
+    latitudeElement.appendChild(this.latitudeValue);
 
     const longitudeElement = createElement('div', ['map_block-longitude']);
     block.appendChild(longitudeElement);
@@ -34,8 +34,13 @@ class MapBlock extends TranslatableBlock {
     longitudeElement.appendChild(longitudeText.element);
     this.translatableElements.push(longitudeText);
 
-    const longitudeValue = createElement('span', ['latitude-value', 'coordinates_value']);
-    longitudeElement.appendChild(longitudeValue);
+    this.longitudeValue = createElement('span', ['latitude-value', 'coordinates_value']);
+    longitudeElement.appendChild(this.longitudeValue);
+  }
+
+  setCoordinates({ lat, lng }) {
+    this.latitudeValue.innerText = lat;
+    this.longitudeValue.innerText = lng;
   }
 }
 

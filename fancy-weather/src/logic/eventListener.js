@@ -8,7 +8,7 @@ import { languageCode as lngCode } from '../gui/constants';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
-  const currentPosition = await getDefaultPosition();
+  let currentPosition;
   const measurement = { true: 'metric', false: 'imperial' };
   const currentLanguage = lngCode.en;
   const isCelsiusScale = true;
@@ -21,6 +21,10 @@ const eventListener = async (blockHandler) => {
 
   const setDatePosition = (datePosition) => {
     blockHandler.setDatePosition(datePosition);
+  };
+
+  const showCoordinates = () => {
+    blockHandler.setCoordinates(currentPosition);
   };
 
   const setMapPosition = () => { map.setMapCenter(currentPosition); };
@@ -37,6 +41,7 @@ const eventListener = async (blockHandler) => {
   };
 
   const initCurrentLocation = async () => {
+    currentPosition = await getDefaultPosition();
     const { formatted } = await getGeocoding(
       `${currentPosition.lat}+${currentPosition.lng}`,
       currentLanguage,
@@ -50,6 +55,7 @@ const eventListener = async (blockHandler) => {
     setDatePosition({ date: localDate, position });
 
     await setMapPosition(currentPosition);
+    showCoordinates();
     await setWeather();
     setLanguage('en');
   };
