@@ -130,6 +130,7 @@ const eventListener = async (blockHandler) => {
   menu.addEventListener('change', (event) => {
     if (event.target === languageChanger) {
       currentLanguage = lngCode[event.target.value];
+      window.localStorage.setItem('currentLanguage', currentLanguage);
       setLanguage();
     }
   });
@@ -146,11 +147,21 @@ const eventListener = async (blockHandler) => {
     }
   });
 
-  if (window.localStorage.getItem('isCelsiusScale') === 'false') {
-    changeTemperatureMeasurement();
-  }
+  const init = async () => {
+    if (window.localStorage.getItem('isCelsiusScale') === 'false') {
+      changeTemperatureMeasurement();
+    }
 
-  await initCurrentLocation();
+    const language = window.localStorage.getItem('currentLanguage');
+    if (language) {
+      currentLanguage = language;
+      languageChanger.value = language;
+    }
+
+    await initCurrentLocation();
+  };
+
+  init();
 };
 
 export default eventListener;
