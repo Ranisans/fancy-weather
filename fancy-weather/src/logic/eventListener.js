@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 import MapClass from './map';
 import getDefaultPosition from './geolocation';
@@ -56,14 +57,18 @@ const eventListener = async (blockHandler) => {
   };
 
   const setBackground = async () => {
-    const imageURL = await getBackgroundImage({
-      currentDateString: localDate,
-      weatherType,
-      currentCity,
-      currentCountry,
-    });
+    try {
+      const imageURL = await getBackgroundImage({
+        currentDateString: localDate,
+        weatherType,
+        currentCity,
+        currentCountry,
+      });
 
-    main.style.backgroundImage = `url(${imageURL})`;
+      main.style.backgroundImage = `url(${imageURL})`;
+    } catch (e) {
+      alert('Unable to get an image');
+    }
   };
 
   const initCurrentLocation = async () => {
