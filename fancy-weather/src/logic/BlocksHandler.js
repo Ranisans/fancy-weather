@@ -28,6 +28,11 @@ class BlocksHandler {
       futureWeatherBlock[element].setData(next[i]);
     });
   }
+
+  setDatePosition({ date, position }) {
+    const { dateBlock } = this.blocks;
+    dateBlock.setData({ date, position });
+  }
 }
 
 export default BlocksHandler;

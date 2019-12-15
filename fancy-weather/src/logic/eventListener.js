@@ -3,18 +3,25 @@ import MapClass from './map';
 import getDefaultPosition from './geolocation';
 import getWeatherForecastForFiveDays from './weatherForecast';
 import getCoordinatesByTown from './geocoding';
+import getLocalTime from './localTime';
+import { languageCode as lngCode } from '../gui/constants';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
   const currentPosition = await getDefaultPosition();
   const measurement = { true: 'metric', false: 'imperial' };
+  const currentLanguage = lngCode.en;
   const isCelsiusScale = true;
 
   const getGeocoding = async (
     townName, languageCode,
   ) => getCoordinatesByTown(townName, languageCode);
 
-  const getLocalTime = async () => getLocalTime(currentPosition);
+  const getTime = async () => getLocalTime(currentPosition);
+
+  const setDatePosition = (datePosition) => {
+    blockHandler.setDatePosition(datePosition);
+  };
 
   const setMapPosition = () => { map.setMapCenter(currentPosition); };
 
@@ -29,9 +36,24 @@ const eventListener = async (blockHandler) => {
     blockHandler.translate(language);
   };
 
-  await setMapPosition(currentPosition);
-  await setWeather();
-  await setLanguage('en');
+  const initCurrentLocation = async () => {
+    const { formatted } = await getGeocoding(
+      `${currentPosition.lat}+${currentPosition.lng}`,
+      currentLanguage,
+    );
+
+    const positionArray = formatted.split(',');
+    positionArray.pop();
+    const position = positionArray.join(', ');
+
+    await setMapPosition(currentPosition);
+    await setWeather();
+    await setLanguage('en');
+    const localDate = await getTime();
+    setDatePosition({ date: localDate, position });
+  };
+
+  await initCurrentLocation();
 };
 
 export default eventListener;
