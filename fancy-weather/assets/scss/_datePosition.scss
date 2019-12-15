@@ -28,4 +28,11 @@
 
   font-size: 1.5rem;
   font-weight: 600;
+
+  &-month {
+    max-width: 3ch;
+    overflow: hidden;
+    margin-right: 5px;
+    text-transform: capitalize;
+  }
 }
