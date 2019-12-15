@@ -3,24 +3,24 @@ Project:
     ✔ Add styles to all blocks @done(19-12-13 12:34)
     ✔ Add Font @done(19-12-12 17:02)
     ✔ Remove border on mouse push @done(19-12-13 10:04) @lasted(16m10s)
-    ☐ Add styles for another window size
+    ✔ Add styles for another window size @done(19-12-14 11:37)
   Translate:
     ✔ Add translate for every translatable block @done(19-12-11 17:02)
       ✔ For day of the week add check current day and get translate from base @done(19-12-11 17:02)
   Map:
-    ☐ Add geopositioning after start page
-    ☐ Add open map by coordinates
+    ✔ Add geopositioning after start page @done(19-12-14 20:27)
+    ✔ Add open map by coordinates @done(19-12-14 20:27)
     ☐ Add get coordinates by search
   Weather:
-    ☐ Add get weather by coordinates
+    ✔ Add get weather by coordinates @done(19-12-14 20:27)
     ☐ Add change background by city and weather
       ☐ Add change background by daytime @low 
   Main:
     ☐ Add Speech Recording @high
     ✔ Change WeatherBlock to class @done(19-12-13 09:47)
-    ☐ Add position and time blocks
-    ☐ https://ipgeolocation.io/documentation/timezone-api.html - timezone
-    ☐ https://opencagedata.com - town to coordinates and "town, country"
+    ✔ Add position and time blocks @done(19-12-14 20:27)
+    ✔ https://opencagedata.com - town to coordinates and "town, country" @done(19-12-15 13:08)
+    ☐ Add get data from opencagedata by languageChanger
     
   Extra:
     ✔ Temp block (div -> 2span C&F, above - div - rotated and moved). Temp changed on every click @done(19-12-13 10:47)
