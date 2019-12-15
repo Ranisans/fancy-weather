@@ -1,5 +1,5 @@
 const daysOfWeek = [
-  { en: 'sunday', ru: 'воскресенье', by: 'надзеля' },
+  { en: 'sunday', ru: 'воскресенье', by: 'нядзеля' },
   { en: 'monday', ru: 'понедельник', by: 'панядзелак' },
   { en: 'tuesday', ru: 'вторник', by: 'ауторак' },
   { en: 'wednesday', ru: 'среда', by: 'серада' },
