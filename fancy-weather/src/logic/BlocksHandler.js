@@ -30,8 +30,12 @@ class BlocksHandler {
   }
 
   setDatePosition({ date, position }) {
-    const { dateBlock } = this.blocks;
-    dateBlock.setData({ date, position });
+    const thisDate = new Date(date);
+    const { dateBlock, futureWeatherBlock } = this.blocks;
+    dateBlock.setData({ date: thisDate, position });
+    weatherBlocksClasses.forEach((element) => {
+      futureWeatherBlock[element].setDate(thisDate);
+    });
   }
 }
 
