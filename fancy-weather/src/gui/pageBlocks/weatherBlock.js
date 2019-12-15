@@ -33,6 +33,10 @@ class FutureWeatherBlock extends WeatherBlock {
     this.weatherPict.className = classes.join(' ').trim();
     this.weatherPict.classList.add(picClassName);
   }
+
+  setDate(date) {
+    this.dayOfWeek.updateDayOfWeek(date);
+  }
 }
 
 export default FutureWeatherBlock;

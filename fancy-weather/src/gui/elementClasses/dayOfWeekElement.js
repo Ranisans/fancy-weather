@@ -8,11 +8,10 @@ class DayOfWeekElement extends TranslatableElement {
 
   setValue(turn) {
     this.turn = turn;
-    this.updateDayOfWeek();
   }
 
-  updateDayOfWeek() {
-    let dayNumber = this.turn + (new Date()).getDay();
+  updateDayOfWeek(date = new Date()) {
+    let dayNumber = this.turn + (date).getDay();
     if (dayNumber >= daysOfWeek.length) {
       dayNumber -= daysOfWeek.length;
     }
