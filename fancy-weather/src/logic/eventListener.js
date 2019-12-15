@@ -20,6 +20,10 @@ const eventListener = async (blockHandler) => {
   const setLanguage = (language) => {
     blockHandler.translate(language);
   };
+
+  await setMapPosition(currentPosition);
+  await setWeather();
+  await setLanguage('en');
 };
 
 export default eventListener;
