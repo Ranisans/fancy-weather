@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Private repository for @ranisans",
   "main": "webpack.config.js",
-  "dependencies": {
-    "mapbox-gl": "^1.6.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/polyfill": "^7.7.0",

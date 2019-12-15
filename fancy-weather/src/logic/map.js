@@ -1,5 +1,4 @@
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
-
+/* eslint-disable no-undef */
 import { mapbox } from '../SecretAPIKeys';
 
 class MapClass {
