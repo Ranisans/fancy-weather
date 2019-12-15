@@ -1,12 +1,17 @@
 import MapClass from './map';
 import getDefaultPosition from './geolocation';
 import getWeatherForecastForFiveDays from './weatherForecast';
+import getCoordinatesByTown from './geocoding';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
   const currentPosition = await getDefaultPosition();
   const measurement = { true: 'metric', false: 'imperial' };
   const isCelsiusScale = true;
+
+  const getGeocoding = async (
+    townName, languageCode,
+  ) => getCoordinatesByTown(townName, languageCode);
 
   const setMapPosition = () => { map.setMapCenter(currentPosition); };
 
