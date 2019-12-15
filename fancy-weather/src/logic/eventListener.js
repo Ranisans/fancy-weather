@@ -10,10 +10,16 @@ const eventListener = async (blockHandler) => {
 
   const setMapPosition = () => { map.setMapCenter(currentPosition); };
 
-  const setWeather = () => {
-    const temperatureArray = getWeatherForecastForFiveDays(
+  const setWeather = async () => {
+    const temperatureArray = await getWeatherForecastForFiveDays(
       currentPosition, measurement[isCelsiusScale],
     );
     blockHandler.setTemp(temperatureArray);
   };
+
+  const setLanguage = (language) => {
+    blockHandler.translate(language);
+  };
 };
+
+export default eventListener;
