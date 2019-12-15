@@ -1,22 +1,34 @@
 import { unsplash } from '../SecretAPIKeys';
-import months from '../gui/data/months';
 
 const getBackgroundImage = async ({
-  currentDateString, weatherType, currentCity, currentCountry,
+  currentDateString, currentCity, currentCountry,
 }) => {
-  const day = ['Morning', 'Day', 'Evening', 'Night'];
+  const day = ['morning', 'day', 'evening', 'night'];
+  const seasons = ['winter', 'spring', 'summer', 'autumn'];
   const startQuery = 'https://api.unsplash.com/photos/random?query=';
   const client = `&client_id=${unsplash}`;
   const filterQueryArray = [];
-  if (currentCity) { filterQueryArray.push(currentCity); }
-  if (weatherType) { filterQueryArray.push(weatherType); }
   if (currentCountry && !currentCity) { filterQueryArray.push(currentCountry); }
+  if (currentCity) { filterQueryArray.push(currentCity); }
 
   const currentDate = new Date(currentDateString);
-  const currentMonth = months[currentDate.getMonth()].en;
-  filterQueryArray.push(currentMonth);
-  const currentHours = currentDate.getHours();
 
+  const currentMonth = currentDate.getMonth();
+  if (currentMonth === 11 || currentMonth < 2) {
+    // Winter
+    filterQueryArray.push(seasons[0]);
+  } else if (currentMonth < 5) {
+    // Spring
+    filterQueryArray.push(seasons[1]);
+  } else if (currentMonth < 8) {
+    // Summer
+    filterQueryArray.push(seasons[2]);
+  } else {
+    // Autumn
+    filterQueryArray.push(seasons[3]);
+  }
+
+  const currentHours = currentDate.getHours();
   if (currentHours > 4 && currentHours <= 12) {
     // morning from 4 to 12 hours
     filterQueryArray.push(day[0]);
@@ -37,7 +49,7 @@ const getBackgroundImage = async ({
   const response = await fetch(query);
   const json = await response.json();
 
-  return json;
+  return json.urls.regular;
 };
 
 export default getBackgroundImage;
