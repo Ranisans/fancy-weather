@@ -2,15 +2,15 @@ import { unsplash } from '../SecretAPIKeys';
 import months from '../gui/data/months';
 
 const getBackgroundImage = async ({
-  currentDateString, weatherType, town, country,
+  currentDateString, weatherType, currentCity, currentCountry,
 }) => {
   const day = ['Morning', 'Day', 'Evening', 'Night'];
   const startQuery = 'https://api.unsplash.com/photos/random?query=';
   const client = `&client_id=${unsplash}`;
   const filterQueryArray = [];
-  if (town) { filterQueryArray.push(town); }
+  if (currentCity) { filterQueryArray.push(currentCity); }
   if (weatherType) { filterQueryArray.push(weatherType); }
-  if (country && !town) { filterQueryArray.push(country); }
+  if (currentCountry && !currentCity) { filterQueryArray.push(currentCountry); }
 
   const currentDate = new Date(currentDateString);
   const currentMonth = months[currentDate.getMonth()].en;
