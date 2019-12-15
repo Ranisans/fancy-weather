@@ -171,9 +171,20 @@
     }
   }
 
+  &-search_block {
+    position: relative;
+    margin-left: auto;
+
+    @media #{$information_mobile} {
+      grid-column: 1 /span 3;
+      grid-row: 2;
+    }
+
+  }
+
   &-search_input {
     width: 274px;
-    margin-left: auto;
+    // margin-left: auto;
     padding: 0 10px;
 
     border-radius: 7px 0 0 7px;
@@ -187,9 +198,6 @@
 
     @media #{$information_mobile} {
       width: 215px;
-
-      grid-column: 1 /span 2;
-      grid-row: 2;
     }
   }
 
@@ -201,10 +209,17 @@
 
     @media #{$information_mobile} {
       width: 65px;
-
-      grid-column: 3;
-      grid-row: 2;
       justify-self: right;
     }
+  }
+
+  &-search_speech {
+    position: absolute;
+
+    width: 44px;
+
+    background: url('../images/microphone.svg') center no-repeat;
+
+    right: 110px;
   }
 }

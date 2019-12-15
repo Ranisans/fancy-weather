@@ -40,16 +40,21 @@ class MenuBlock extends TranslatableBlock {
     const currentMeasurement = createElement('div', ['menu-temp_changer-current', 'menu-temp_changer-current--no_animation']);
     tempBlock.appendChild(currentMeasurement);
 
+    const searchBlock = createElement('div', ['menu-search_block']);
+    menu.appendChild(searchBlock);
 
     const searchInput = new SearchInput(['menu-search_input']);
     searchInput.setValue(placeholder);
-    menu.appendChild(searchInput.element);
+    searchBlock.appendChild(searchInput.element);
     this.translatableElements.push(searchInput);
 
     const searchBtn = new TranslatableElement('button', ['menu-search_btn']);
     searchBtn.setValue(search);
-    menu.appendChild(searchBtn.element);
+    searchBlock.appendChild(searchBtn.element);
     this.translatableElements.push(searchBtn);
+
+    const speechButton = createElement('button', ['menu-search_speech']);
+    searchBlock.appendChild(speechButton);
   }
 }
 
