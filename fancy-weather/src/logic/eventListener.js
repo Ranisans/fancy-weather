@@ -13,9 +13,7 @@ const eventListener = async (blockHandler) => {
   let currentLanguage = lngCode.en;
   let isCelsiusScale = true;
 
-  const getGeocoding = async (
-    townName, languageCode,
-  ) => getCoordinatesByTown(townName, languageCode);
+  const getGeocoding = async (townName) => getCoordinatesByTown(townName, currentLanguage);
 
   const getTime = async () => getLocalTime(currentPosition);
 
@@ -47,12 +45,20 @@ const eventListener = async (blockHandler) => {
       currentLanguage,
     );
 
-    const positionArray = formatted.split(',');
-    positionArray.pop();
-    const position = positionArray.join(', ');
-
     const localDate = await getTime();
-    setDatePosition({ date: localDate, position });
+    setDatePosition({ date: localDate, position: formatted });
+
+    await setMapPosition(currentPosition);
+    showCoordinates();
+    await setWeather();
+    setLanguage();
+  };
+
+  const showDataBySearchRequest = async (townName) => {
+    const { formatted, geometry } = await getGeocoding(townName);
+    currentPosition = geometry;
+    const localDate = await getTime();
+    setDatePosition({ date: localDate, position: formatted });
 
     await setMapPosition(currentPosition);
     showCoordinates();
@@ -77,6 +83,11 @@ const eventListener = async (blockHandler) => {
       currentTemp.classList.toggle('menu-temp_changer-current--fahrenheit');
       isCelsiusScale = !isCelsiusScale;
       setWeather();
+    } else if (target === searchBtn) {
+      const searchString = searchInput.value;
+      if (searchString) {
+        showDataBySearchRequest(searchString);
+      }
     }
   });
 
