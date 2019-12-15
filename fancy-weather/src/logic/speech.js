@@ -13,7 +13,9 @@ const initSpeech = (main, searchInput) => {
   const speechEndListener = () => {
     recognition.removeEventListener('end', speechEndListener, true);
 
-    searchInput.value = transcript;
+    if (transcript !== undefined) {
+      searchInput.value = transcript;
+    }
   };
 
   recognition.onresult = (event) => {
