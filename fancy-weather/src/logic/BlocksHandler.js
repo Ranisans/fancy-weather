@@ -8,7 +8,7 @@ class BlocksHandler {
   translate(language) {
     blocksName.forEach((blockName, i) => {
       // if not futureWeatherBlock
-      if (i !== blockName.length - 1) {
+      if (i !== blocksName.length - 1) {
         this.blocks[blockName].translate(language);
       } else {
         const futureWeatherBlock = this.blocks[blockName];
