@@ -1,6 +1,14 @@
-const coordinates = {
-  latitude: 55.4098776,
-  longitude: 36.6942848,
+const minskCoordinates = {
+  latitude: 53.902334,
+  longitude: 27.5618791,
 };
 
-export default coordinates;
+const minskEng = 'Minsk';
+const minskFormattedEng = 'Minsk, Belarus';
+
+const minskRus = 'Минск';
+const minskFormattedRus = 'Минск, Беларусь';
+
+export {
+  minskCoordinates, minskEng, minskFormattedEng, minskRus, minskFormattedRus,
+};
