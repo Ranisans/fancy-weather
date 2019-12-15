@@ -227,6 +227,10 @@
       animation: MicPushed 1s linear 0s 1 alternate both;
 
     }
+
+    @media #{$information_mobile} {
+      right: 60px;
+    }
   }
 
   @keyframes MicPushed {
