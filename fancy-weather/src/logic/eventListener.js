@@ -46,11 +46,12 @@ const eventListener = async (blockHandler) => {
     positionArray.pop();
     const position = positionArray.join(', ');
 
-    await setMapPosition(currentPosition);
-    await setWeather();
-    await setLanguage('en');
     const localDate = await getTime();
     setDatePosition({ date: localDate, position });
+
+    await setMapPosition(currentPosition);
+    await setWeather();
+    setLanguage('en');
   };
 
   await initCurrentLocation();
