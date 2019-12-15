@@ -20,11 +20,8 @@ const eventListener = async (blockHandler) => {
 
   const getGeocoding = async (townName) => {
     const { city, country, geometry } = await getCoordinatesByTown(townName, currentLanguage);
-    if (city.includes(' ')) {
-      currentCity = undefined;
-    } else {
-      currentCity = city;
-    }
+    currentCity = city;
+    currentPosition = geometry;
     return { position: `${city}, ${country}`, geometry };
   };
 
@@ -63,6 +60,7 @@ const eventListener = async (blockHandler) => {
       currentLanguage,
     );
 
+    currentCity = undefined;
     localDate = await getTime();
     setDatePosition({ date: localDate, position });
 
@@ -74,7 +72,6 @@ const eventListener = async (blockHandler) => {
 
   const showDataBySearchRequest = async (townName) => {
     const { position, geometry } = await getGeocoding(townName);
-    currentPosition = geometry;
     localDate = await getTime();
     setDatePosition({ date: localDate, position });
 
