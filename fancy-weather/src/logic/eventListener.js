@@ -96,8 +96,6 @@ const eventListener = async (blockHandler) => {
     setBackground();
   };
 
-  await initCurrentLocation();
-
   const menu = document.querySelector('.menu');
   const searchBtn = document.querySelector('.menu-search_btn');
   const searchInput = document.querySelector('.menu-search_input');
@@ -107,12 +105,17 @@ const eventListener = async (blockHandler) => {
   const languageChanger = document.querySelector('.menu-language_selector');
   const refreshImage = document.querySelector('.menu-refresh_background');
 
+  const changeTemperatureMeasurement = () => {
+    currentTemp.classList.remove('menu-temp_changer-current--no_animation');
+    currentTemp.classList.toggle('menu-temp_changer-current--fahrenheit');
+    isCelsiusScale = !isCelsiusScale;
+    window.localStorage.setItem('isCelsiusScale', isCelsiusScale);
+  };
+
   menu.addEventListener('click', (event) => {
     const { target } = event;
     if (target === fTemp || target === cTemp || target === currentTemp) {
-      currentTemp.classList.remove('menu-temp_changer-current--no_animation');
-      currentTemp.classList.toggle('menu-temp_changer-current--fahrenheit');
-      isCelsiusScale = !isCelsiusScale;
+      changeTemperatureMeasurement();
       setWeather();
     } else if (target === searchBtn) {
       const searchString = searchInput.value;
@@ -142,6 +145,12 @@ const eventListener = async (blockHandler) => {
       }
     }
   });
+
+  if (window.localStorage.getItem('isCelsiusScale') === 'false') {
+    changeTemperatureMeasurement();
+  }
+
+  await initCurrentLocation();
 };
 
 export default eventListener;
