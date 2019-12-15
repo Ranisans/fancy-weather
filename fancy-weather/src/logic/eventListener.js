@@ -11,7 +11,7 @@ const eventListener = async (blockHandler) => {
   let currentPosition;
   const measurement = { true: 'metric', false: 'imperial' };
   const currentLanguage = lngCode.en;
-  const isCelsiusScale = true;
+  let isCelsiusScale = true;
 
   const getGeocoding = async (
     townName, languageCode,
@@ -61,6 +61,23 @@ const eventListener = async (blockHandler) => {
   };
 
   await initCurrentLocation();
+
+  const menu = document.querySelector('.menu');
+  const searchBtn = document.querySelector('.menu-search_btn');
+  const searchInput = document.querySelector('.menu-search_input');
+  const fTemp = document.querySelector('.menu-temp_changer-fahrenheit');
+  const cTemp = document.querySelector('.menu-temp_changer-celsius');
+  const currentTemp = document.querySelector('.menu-temp_changer-current');
+
+  menu.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target === fTemp || target === cTemp || target === currentTemp) {
+      currentTemp.classList.remove('menu-temp_changer-current--no_animation');
+      currentTemp.classList.toggle('menu-temp_changer-current--fahrenheit');
+      isCelsiusScale = !isCelsiusScale;
+      setWeather();
+    }
+  });
 };
 
 export default eventListener;
