@@ -9,7 +9,7 @@ const getDefaultPosition = async () => {
     const { coords } = await getCurrentPosition();
     const { latitude, longitude } = coords;
 
-    return { latitude, longitude };
+    return { lat: latitude, lng: longitude };
   } catch (error) {
     return { error };
   }

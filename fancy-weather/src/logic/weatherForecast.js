@@ -1,8 +1,8 @@
 import { openweathermap } from '../SecretAPIKeys';
 
-const getWeatherForecastForFiveDays = async ({ latitude, longitude }, units = 'metric') => {
+const getWeatherForecastForFiveDays = async ({ lat, lng }, units = 'metric') => {
   const query = 'https://api.openweathermap.org/data/2.5/forecast?'
-    + `lat=${latitude}&lon=${longitude}`
+    + `lat=${lat}&lon=${lng}`
     + `&units=${units}`
     + `&appid=${openweathermap}`;
 

@@ -11,8 +11,8 @@ class MapClass {
     });
   }
 
-  setMapCenter({ latitude, longitude }) {
-    this.map.flyTo({ center: [longitude, latitude] });
+  setMapCenter({ lat, lng }) {
+    this.map.flyTo({ center: [lng, lat] });
   }
 }
 

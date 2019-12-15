@@ -1,8 +1,8 @@
 import { timezonedb } from '../SecretAPIKeys';
 
-const getLocalTime = async ({ latitude, longitude }) => {
+const getLocalTime = async ({ lat, lng }) => {
   const query = `http://api.timezonedb.com/v2.1/get-time-zone?key=${timezonedb}&format=json&by=position&`
-    + `lat=${latitude}&lng=${longitude}`;
+    + `lat=${lat}&lng=${lng}`;
 
   const response = await fetch(query);
   const result = await response.json();

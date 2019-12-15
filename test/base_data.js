@@ -1,6 +1,6 @@
 const minskCoordinates = {
-  latitude: 53.902334,
-  longitude: 27.5618791,
+  lat: 53.902334,
+  lng: 27.5618791,
 };
 
 const minskEng = 'Minsk';
