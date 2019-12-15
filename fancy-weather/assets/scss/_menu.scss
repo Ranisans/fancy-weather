@@ -219,7 +219,24 @@
     width: 44px;
 
     background: url('../images/microphone.svg') center no-repeat;
+    border-radius: 100%;
 
     right: 110px;
+
+    &:active {
+      animation: MicPushed 1s linear 0s 1 alternate both;
+
+    }
+  }
+
+  @keyframes MicPushed {
+    from {
+      background-color: transparent;
+    }
+    
+    100% {
+      background-color: aqua;
+      
+    }
   }
 }
