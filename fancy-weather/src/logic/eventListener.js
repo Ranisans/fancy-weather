@@ -5,6 +5,7 @@ import getWeatherForecastForFiveDays from './weatherForecast';
 import getCoordinatesByTown from './geocoding';
 import getLocalTime from './localTime';
 import { languageCode as lngCode } from '../gui/constants';
+import getBackgroundImage from './getBackgroundImage';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
@@ -17,6 +18,8 @@ const eventListener = async (blockHandler) => {
   let currentCity;
   let currentCountry;
   let localDate;
+
+  const main = document.querySelector('.main');
 
   const getGeocoding = async (townName) => {
     const { city, country, geometry } = await getCoordinatesByTown(townName, currentLanguage);
@@ -52,7 +55,16 @@ const eventListener = async (blockHandler) => {
     blockHandler.translate(currentLanguage);
   };
 
-  const setBackground = () => { };
+  const setBackground = async () => {
+    const imageURL = await getBackgroundImage({
+      currentDateString: localDate,
+      weatherType,
+      currentCity,
+      currentCountry,
+    });
+
+    main.style.backgroundImage = `url(${imageURL})`;
+  };
 
   const initCurrentLocation = async () => {
     currentPosition = await getDefaultPosition();
@@ -69,6 +81,7 @@ const eventListener = async (blockHandler) => {
     showCoordinates();
     await setWeather();
     setLanguage();
+    setBackground();
   };
 
   const showDataBySearchRequest = async (townName) => {
@@ -80,6 +93,7 @@ const eventListener = async (blockHandler) => {
     showCoordinates();
     await setWeather();
     setLanguage();
+    setBackground();
   };
 
   await initCurrentLocation();
