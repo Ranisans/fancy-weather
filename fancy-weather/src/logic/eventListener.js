@@ -10,7 +10,7 @@ const eventListener = async (blockHandler) => {
   const map = new MapClass();
   let currentPosition;
   const measurement = { true: 'metric', false: 'imperial' };
-  const currentLanguage = lngCode.en;
+  let currentLanguage = lngCode.en;
   let isCelsiusScale = true;
 
   const getGeocoding = async (
@@ -36,8 +36,8 @@ const eventListener = async (blockHandler) => {
     blockHandler.setTemp(temperatureArray);
   };
 
-  const setLanguage = (language) => {
-    blockHandler.translate(language);
+  const setLanguage = () => {
+    blockHandler.translate(currentLanguage);
   };
 
   const initCurrentLocation = async () => {
@@ -57,7 +57,7 @@ const eventListener = async (blockHandler) => {
     await setMapPosition(currentPosition);
     showCoordinates();
     await setWeather();
-    setLanguage('en');
+    setLanguage();
   };
 
   await initCurrentLocation();
@@ -68,6 +68,7 @@ const eventListener = async (blockHandler) => {
   const fTemp = document.querySelector('.menu-temp_changer-fahrenheit');
   const cTemp = document.querySelector('.menu-temp_changer-celsius');
   const currentTemp = document.querySelector('.menu-temp_changer-current');
+  const languageChanger = document.querySelector('.menu-language_selector');
 
   menu.addEventListener('click', (event) => {
     const { target } = event;
@@ -76,6 +77,13 @@ const eventListener = async (blockHandler) => {
       currentTemp.classList.toggle('menu-temp_changer-current--fahrenheit');
       isCelsiusScale = !isCelsiusScale;
       setWeather();
+    }
+  });
+
+  menu.addEventListener('change', (event) => {
+    if (event.target === languageChanger) {
+      currentLanguage = lngCode[event.target.value];
+      setLanguage();
     }
   });
 };
