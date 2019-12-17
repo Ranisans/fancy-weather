@@ -1,3 +1,5 @@
+import { measurementConst } from '../constants';
+
 const weatherType = {
   Clear: { en: 'clear', ru: 'ясно', be: 'ясна' },
   Clouds: { en: 'clouds', ru: 'облачно', be: 'воблачна' },
@@ -22,7 +24,10 @@ const wind = { en: 'wind: ', ru: 'ветер: ', be: 'вецер: ' };
 
 const humidity = { en: 'humidity: ', ru: 'влажность: ', be: 'вільготнасць: ' };
 
-const measurement = { en: ' m/s', ru: ' м/с', be: ' м/с' };
+const measurement = {
+  [measurementConst.metric]: { en: ' m/s', ru: ' м/с', be: ' м/с' },
+  [measurementConst.imperial]: { en: ' mph', ru: ' миля/ч', be: ' міля/г' },
+};
 
 export {
   weatherType, feelsLike, wind, humidity, measurement,

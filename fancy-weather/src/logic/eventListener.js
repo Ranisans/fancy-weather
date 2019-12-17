@@ -5,14 +5,14 @@ import getDefaultPosition from './geolocation';
 import getWeatherForecastForFiveDays from './weatherForecast';
 import getCoordinatesByTown from './geocoding';
 import getLocalTime from './localTime';
-import { languageCode as lngCode } from '../gui/constants';
+import { languageCode as lngCode, measurementConst } from '../gui/constants';
 import getBackgroundImage from './getBackgroundImage';
 import initSpeech from './speech';
 
 const eventListener = async (blockHandler) => {
   const map = new MapClass();
   let currentPosition;
-  const measurement = { true: 'metric', false: 'imperial' };
+  const measurement = { true: measurementConst.metric, false: measurementConst.imperial };
   let currentLanguage = lngCode.en;
   let isCelsiusScale = true;
 
@@ -50,7 +50,7 @@ const eventListener = async (blockHandler) => {
     const currentWeather = temperatureArray[0];
     weatherType = currentWeather.weather[0].main;
 
-    blockHandler.setTemp(temperatureArray);
+    blockHandler.setTemp(temperatureArray, measurement[isCelsiusScale]);
   };
 
   const setLanguage = () => {

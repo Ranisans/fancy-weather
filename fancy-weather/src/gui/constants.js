@@ -6,6 +6,8 @@ const blocksName = ['menuBlock', 'dateBlock', 'currentWeatherBlock', 'mapBlock',
 
 const languageCode = { en: 'en', ru: 'ru', be: 'be' };
 
+const measurementConst = { metric: 'metric', imperial: 'imperial' };
+
 export {
-  measuringScale, weatherBlocksClasses, blocksName, languageCode,
+  measuringScale, weatherBlocksClasses, blocksName, languageCode, measurementConst,
 };

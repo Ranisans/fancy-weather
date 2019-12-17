@@ -19,10 +19,10 @@ class BlocksHandler {
     });
   }
 
-  setTemp(temperatureArray) {
+  setTemp(temperatureArray, scale) {
     const [current, ...next] = temperatureArray;
     const { currentWeatherBlock, futureWeatherBlock } = this.blocks;
-    currentWeatherBlock.setData(current);
+    currentWeatherBlock.setData(current, scale);
 
     weatherBlocksClasses.forEach((element, i) => {
       futureWeatherBlock[element].setData(next[i]);

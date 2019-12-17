@@ -51,10 +51,9 @@ class CurrentWeather extends TranslatableBlock {
     this.speed = createElement('span', ['wind-speed']);
     windBlock.appendChild(this.speed);
 
-    const measurementElement = new TranslatableElement('span', ['wind-measurement']);
-    measurementElement.setValue(measurement);
-    windBlock.appendChild(measurementElement.element);
-    this.translatableElements.push(measurementElement);
+    this.measurementElement = new TranslatableElement('span', ['wind-measurement']);
+    windBlock.appendChild(this.measurementElement.element);
+    this.translatableElements.push(this.measurementElement);
 
     const humidityBlock = createElement('p', ['current_weather-humidity']);
     block.appendChild(humidityBlock);
@@ -68,7 +67,10 @@ class CurrentWeather extends TranslatableBlock {
     humidityBlock.appendChild(this.humidityValue);
   }
 
-  setData(data) {
+  setData(data, scale) {
+    this.measurementElement.setValue(measurement[scale]);
+    if (this.lang) { this.measurementElement.translate(this.lang); }
+
     this.temp.setValue(`${Math.floor(data.main.temp)}°`);
     this.weatherTypeElement.setValue(data.weather[0].main);
     this.feelsLikeTemp.setValue(Math.floor(data.main.feels_like));
