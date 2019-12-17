@@ -79,7 +79,6 @@ const eventListener = async (blockHandler) => {
       currentLanguage,
     );
 
-    currentCity = undefined;
     localDate = await getTime();
     setDatePosition({ date: localDate, position });
 
