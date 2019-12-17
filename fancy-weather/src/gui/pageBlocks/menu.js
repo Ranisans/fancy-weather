@@ -49,6 +49,7 @@ class MenuBlock extends TranslatableBlock {
     this.translatableElements.push(searchInput);
 
     const searchBtn = new TranslatableElement('button', ['menu-search_btn']);
+    searchBtn.element.innerText = 'Search';
     searchBtn.setValue(search);
     searchBlock.appendChild(searchBtn.element);
     this.translatableElements.push(searchBtn);
