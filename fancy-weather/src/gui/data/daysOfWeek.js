@@ -8,4 +8,15 @@ const daysOfWeek = [
   { en: 'saturday', ru: 'суббота', be: 'субота' },
 ];
 
-export default daysOfWeek;
+const shortDaysOfWeek = [
+  { en: 'Mon', ru: 'Вс', be: 'Нд' },
+  { en: 'Tue', ru: 'Пн', be: 'Пн' },
+  { en: 'Wed', ru: 'Вт', be: 'Aў' },
+  { en: 'Thu', ru: 'Ср', be: 'Ср' },
+  { en: 'Fri', ru: 'Чт', be: 'Чц' },
+  { en: 'Sat', ru: 'Пт', be: 'Пт' },
+  { en: 'Sun', ru: 'Сб', be: 'Сб' },
+];
+
+
+export { daysOfWeek, shortDaysOfWeek };

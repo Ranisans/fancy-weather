@@ -1,9 +1,10 @@
 import TranslatableElement from './translatableElement';
-import daysOfWeek from '../data/daysOfWeek';
+import { daysOfWeek, shortDaysOfWeek } from '../data/daysOfWeek';
 
 class DayOfWeekElement extends TranslatableElement {
-  constructor(classes) {
+  constructor(classes, isShort = false) {
     super('span', classes);
+    this.isShort = isShort;
   }
 
   setValue(turn) {
@@ -11,11 +12,12 @@ class DayOfWeekElement extends TranslatableElement {
   }
 
   updateDayOfWeek(date = new Date()) {
+    const daysOfYheWeek = this.isShort ? shortDaysOfWeek : daysOfWeek;
     let dayNumber = this.turn + (date).getDay();
-    if (dayNumber >= daysOfWeek.length) {
-      dayNumber -= daysOfWeek.length;
+    if (dayNumber >= daysOfYheWeek.length) {
+      dayNumber -= daysOfYheWeek.length;
     }
-    this.value = daysOfWeek[dayNumber];
+    this.value = daysOfYheWeek[dayNumber];
   }
 }
 

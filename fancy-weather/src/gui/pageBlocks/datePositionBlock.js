@@ -20,7 +20,7 @@ class DatePositionBlock extends TranslatableBlock {
     const dateBlock = createElement('p', ['date_block']);
     block.appendChild(dateBlock);
 
-    this.dayOfWeek = new DayOfWeekElement(['date_block-day_of_week']);
+    this.dayOfWeek = new DayOfWeekElement(['date_block-day_of_week'], true);
     dateBlock.appendChild(this.dayOfWeek.element);
     this.dayOfWeek.setValue(0);
     this.translatableElements.push(this.dayOfWeek);
