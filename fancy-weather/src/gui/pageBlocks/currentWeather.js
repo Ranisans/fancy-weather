@@ -1,4 +1,4 @@
-import WeatherBlock from './AbstractClasses/WeatherBlockClass';
+import TranslatableBlock from './AbstractClasses/TranslateBlockClass';
 import createElement from '../elementClasses/createElement';
 import TranslatableElement from '../elementClasses/translatableElement';
 import TemperatureElement from '../elementClasses/temperatureElement';
@@ -7,7 +7,7 @@ import {
   weatherType, feelsLike, wind, humidity, measurement,
 } from '../data/currentWeather';
 
-class CurrentWeather extends WeatherBlock {
+class CurrentWeather extends TranslatableBlock {
   constructor(main) {
     super();
     this.translatableElements = [];

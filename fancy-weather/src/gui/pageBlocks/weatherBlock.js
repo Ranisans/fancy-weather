@@ -1,9 +1,9 @@
-import WeatherBlock from './AbstractClasses/WeatherBlockClass';
+import TranslatableBlock from './AbstractClasses/TranslateBlockClass';
 import createElement from '../elementClasses/createElement';
 import DayOfWeekElement from '../elementClasses/dayOfWeekElement';
 import TemperatureElement from '../elementClasses/temperatureElement';
 
-class FutureWeatherBlock extends WeatherBlock {
+class FutureWeatherBlock extends TranslatableBlock {
   constructor(mainBlock, baseClass, turn) {
     super();
     this.translatableElements = [];
