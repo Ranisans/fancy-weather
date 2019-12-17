@@ -13,7 +13,7 @@ const getCoordinatesByTown = async (townName, languageCode) => {
 
   const townData = json.results[0];
   return {
-    city: townData.components.state,
+    city: townData.components.city ? townData.components.city : townData.components.state,
     country: townData.components.country,
     geometry: townData.geometry,
   };
