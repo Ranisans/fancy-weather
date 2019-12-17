@@ -1,5 +1,5 @@
-const latitude = { en: 'latitude: ', ru: 'широта: ', by: 'шырата: ' };
+const latitude = { en: 'latitude: ', ru: 'широта: ', be: 'шырата: ' };
 
-const longitude = { en: 'longitude: ', ru: 'долгота: ', by: 'даўгата: ' };
+const longitude = { en: 'longitude: ', ru: 'долгота: ', be: 'даўгата: ' };
 
 export { latitude, longitude };

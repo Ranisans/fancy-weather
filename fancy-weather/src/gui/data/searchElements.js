@@ -1,5 +1,5 @@
-const placeholder = { en: 'Search city or ZIP', ru: 'Поиск города', by: 'Пошук горада' };
+const placeholder = { en: 'Search city or ZIP', ru: 'Поиск города', be: 'Пошук горада' };
 
-const search = { en: 'search', ru: 'поиск', by: 'пошук' };
+const search = { en: 'search', ru: 'поиск', be: 'пошук' };
 
 export { placeholder, search };

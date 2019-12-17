@@ -15,7 +15,7 @@ class MenuBlock extends TranslatableBlock {
     const refreshBackgroundBtn = createElement('button', ['menu-refresh_background']);
     menu.appendChild(refreshBackgroundBtn);
 
-    const languages = ['en', 'ru', 'by'];
+    const languages = ['en', 'ru', 'be'];
     const languageChanger = createElement('select', ['menu-language_selector']);
     menu.appendChild(languageChanger);
 

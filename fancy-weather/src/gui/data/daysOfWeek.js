@@ -1,11 +1,11 @@
 const daysOfWeek = [
-  { en: 'sunday', ru: 'воскресенье', by: 'нядзеля' },
-  { en: 'monday', ru: 'понедельник', by: 'панядзелак' },
-  { en: 'tuesday', ru: 'вторник', by: 'ауторак' },
-  { en: 'wednesday', ru: 'среда', by: 'серада' },
-  { en: 'thursday', ru: 'четверг', by: 'чачвер' },
-  { en: 'friday', ru: 'пятница', by: 'пятнiца' },
-  { en: 'saturday', ru: 'суббота', by: 'субота' },
+  { en: 'sunday', ru: 'воскресенье', be: 'нядзеля' },
+  { en: 'monday', ru: 'понедельник', be: 'панядзелак' },
+  { en: 'tuesday', ru: 'вторник', be: 'ауторак' },
+  { en: 'wednesday', ru: 'среда', be: 'серада' },
+  { en: 'thursday', ru: 'четверг', be: 'чачвер' },
+  { en: 'friday', ru: 'пятница', be: 'пятнiца' },
+  { en: 'saturday', ru: 'суббота', be: 'субота' },
 ];
 
 export default daysOfWeek;

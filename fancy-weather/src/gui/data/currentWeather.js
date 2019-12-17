@@ -1,28 +1,28 @@
 const weatherType = {
-  Clear: { en: 'clear', ru: 'ясно', by: 'ясна' },
-  Clouds: { en: 'clouds', ru: 'облачно', by: 'воблачна' },
-  Drizzle: { en: 'drizzle', ru: 'мелкий дождь', by: 'імжа' },
-  Rain: { en: 'rain', ru: 'ясно', by: 'дождж' },
-  Thunderstorm: { en: 'thunderstorm', ru: 'ясно', by: 'навальніца' },
-  Snow: { en: 'snow', ru: 'снег', by: 'снег' },
-  Mist: { en: 'Mist', ru: 'Дымка', by: 'Смуга' },
-  Smoke: { en: 'Smoke', ru: 'Дым', by: 'Дым' },
-  Haze: { en: 'Haze', ru: 'Мгла', by: 'Iмгла' },
-  Dust: { en: 'Dust', ru: 'Пыль', by: 'Пыл' },
-  Fog: { en: 'Fog', ru: 'Туман', by: 'Туман' },
-  Sand: { en: 'Sand', ru: 'Песок', by: 'Пясок' },
-  Ash: { en: 'Ash', ru: 'Пепел', by: 'Пепел' },
-  Squall: { en: 'Squall', ru: 'Шквал', by: 'Шквал' },
-  Tornado: { en: 'Tornado', ru: 'Торнадо', by: 'Тарнада' },
+  Clear: { en: 'clear', ru: 'ясно', be: 'ясна' },
+  Clouds: { en: 'clouds', ru: 'облачно', be: 'воблачна' },
+  Drizzle: { en: 'drizzle', ru: 'мелкий дождь', be: 'імжа' },
+  Rain: { en: 'rain', ru: 'ясно', be: 'дождж' },
+  Thunderstorm: { en: 'thunderstorm', ru: 'ясно', be: 'навальніца' },
+  Snow: { en: 'snow', ru: 'снег', be: 'снег' },
+  Mist: { en: 'Mist', ru: 'Дымка', be: 'Смуга' },
+  Smoke: { en: 'Smoke', ru: 'Дым', be: 'Дым' },
+  Haze: { en: 'Haze', ru: 'Мгла', be: 'Iмгла' },
+  Dust: { en: 'Dust', ru: 'Пыль', be: 'Пыл' },
+  Fog: { en: 'Fog', ru: 'Туман', be: 'Туман' },
+  Sand: { en: 'Sand', ru: 'Песок', be: 'Пясок' },
+  Ash: { en: 'Ash', ru: 'Пепел', be: 'Пепел' },
+  Squall: { en: 'Squall', ru: 'Шквал', be: 'Шквал' },
+  Tornado: { en: 'Tornado', ru: 'Торнадо', be: 'Тарнада' },
 };
 
-const feelsLike = { en: 'feels like: ', ru: 'по ощущению: ', by: 'адчуваецца як: ' };
+const feelsLike = { en: 'feels like: ', ru: 'по ощущению: ', be: 'адчуваецца як: ' };
 
-const wind = { en: 'wind: ', ru: 'ветер: ', by: 'вецер: ' };
+const wind = { en: 'wind: ', ru: 'ветер: ', be: 'вецер: ' };
 
-const humidity = { en: 'humidity: ', ru: 'влажность: ', by: 'вільготнасць: ' };
+const humidity = { en: 'humidity: ', ru: 'влажность: ', be: 'вільготнасць: ' };
 
-const measurement = { en: ' m/s', ru: ' м/с', by: ' м/с' };
+const measurement = { en: ' m/s', ru: ' м/с', be: ' м/с' };
 
 export {
   weatherType, feelsLike, wind, humidity, measurement,
