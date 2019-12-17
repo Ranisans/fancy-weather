@@ -39,8 +39,16 @@ class MapBlock extends TranslatableBlock {
   }
 
   setCoordinates({ lat, lng }) {
-    this.latitudeValue.innerText = lat;
-    this.longitudeValue.innerText = lng;
+    const convertToMinutes = (degree) => {
+      const minute = 60; // secund
+      const decimal = 10; // decimal number system
+      const deg = parseInt(degree, decimal);
+      const rest = degree - deg;
+      const min = parseInt(rest * minute, decimal);
+      return `${deg}°${min}'`;
+    };
+    this.latitudeValue.innerText = convertToMinutes(lat);
+    this.longitudeValue.innerText = convertToMinutes(lng);
   }
 }
 
