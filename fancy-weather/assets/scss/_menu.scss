@@ -33,7 +33,7 @@
 
   &-refresh_background, &-language_selector, &-search_btn, &-search_input {
     &:hover {
-      background-color: rgba(228, 217, 157, 0.253);
+      background-color: rgba(157, 228, 222, 0.253);
 
       transition-duration: 1s;
     }
@@ -41,8 +41,19 @@
 
   &-refresh_background, &-language_selector, &-search_btn {
     &:active {
-      box-shadow: inset 0px 0px 5px #c1c1c1;
-      margin: 6px 10px 2px 10px;
+      animation: pushElement 0.5s linear 0s 1 alternate both;
+    }
+  }
+
+  @keyframes pushElement {
+    from {
+      height: 100%;
+      align-self: flex-end;
+
+    }
+    to {
+      height: 50%;
+      align-self: flex-end;
     }
   }
 
