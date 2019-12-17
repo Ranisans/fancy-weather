@@ -43,7 +43,7 @@ const getBackgroundImage = async ({
     filterQueryArray.push(day[3]);
   }
 
-  const filterQuery = filterQueryArray.join('-');
+  const filterQuery = filterQueryArray.join('+');
 
   const query = `${startQuery}${filterQuery}${client}`;
   const response = await fetch(query);
