@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = (env, args) => {
   const config = {
@@ -77,6 +78,12 @@ module.exports = (env, args) => {
       new HtmlWebPackPlugin({
         template: './fancy-weather/index.html',
         filename: './index.html',
+      }),
+      new FaviconsWebpackPlugin({
+        logo: './fancy-weather/assets/images/sunny.png',
+        cache: true,
+        mode: 'light',
+        inject: true,
       }),
       new webpack.LoaderOptionsPlugin({
         test: /\.js$/,
