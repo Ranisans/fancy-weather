@@ -28,7 +28,7 @@ const eventListener = async (blockHandler) => {
     currentCity = city;
     currentCountry = country;
     currentPosition = geometry;
-    return { position: `${city}, ${country}`, geometry };
+    return { position: `${city}, ${country}` };
   };
 
   const getTime = async () => getLocalTime(currentPosition);
@@ -72,33 +72,20 @@ const eventListener = async (blockHandler) => {
     }
   };
 
-  const initCurrentLocation = async () => {
-    currentPosition = await getDefaultPosition();
-    const { position } = await getGeocoding(
-      `${currentPosition.lat}+${currentPosition.lng}`,
-      currentLanguage,
-    );
+  const fillThePage = async (searchRequest) => {
+    try {
+      const { position } = await getGeocoding(searchRequest);
+      localDate = await getTime();
+      setDatePosition({ date: localDate, position });
 
-    localDate = await getTime();
-    setDatePosition({ date: localDate, position });
-
-    await setMapPosition(currentPosition);
-    showCoordinates();
-    await setWeather();
-    setLanguage();
-    setBackground();
-  };
-
-  const showDataBySearchRequest = async (townName) => {
-    const { position, geometry } = await getGeocoding(townName);
-    localDate = await getTime();
-    setDatePosition({ date: localDate, position });
-
-    await setMapPosition(currentPosition);
-    showCoordinates();
-    await setWeather();
-    setLanguage();
-    setBackground();
+      await setMapPosition(currentPosition);
+      showCoordinates();
+      await setWeather();
+      setLanguage();
+      setBackground();
+    } catch (error) {
+      alert('Something goes wrong :)');
+    }
   };
 
   const menu = document.querySelector('.menu');
@@ -125,7 +112,7 @@ const eventListener = async (blockHandler) => {
     } else if (target === searchBtn) {
       const searchString = searchInput.value;
       if (searchString) {
-        showDataBySearchRequest(searchString);
+        fillThePage(searchString);
       }
     } else if (target === refreshImage) {
       setBackground();
@@ -146,7 +133,7 @@ const eventListener = async (blockHandler) => {
       if (key === 13) { // 13 is enter
         const searchString = searchInput.value;
         if (searchString) {
-          showDataBySearchRequest(searchString);
+          fillThePage(searchString);
         }
       }
     }
@@ -165,7 +152,10 @@ const eventListener = async (blockHandler) => {
 
     initSpeech(main, searchInput);
 
-    await initCurrentLocation();
+    currentPosition = await getDefaultPosition();
+    const searchRequest = `${currentPosition.lat}+${currentPosition.lng}`;
+
+    await fillThePage(searchRequest);
   };
 
   init();
