@@ -20,6 +20,7 @@ const eventListener = async (blockHandler) => {
   let currentCity;
   let currentCountry;
   let localDate;
+  let currentSearchRequest;
 
   const main = document.querySelector('.main');
 
@@ -74,6 +75,7 @@ const eventListener = async (blockHandler) => {
 
   const fillThePage = async (searchRequest) => {
     try {
+      currentSearchRequest = searchRequest;
       const { position } = await getGeocoding(searchRequest);
       localDate = await getTime();
       setDatePosition({ date: localDate, position });
@@ -119,10 +121,13 @@ const eventListener = async (blockHandler) => {
     }
   });
 
-  menu.addEventListener('change', (event) => {
+  menu.addEventListener('change', async (event) => {
     if (event.target === languageChanger) {
       currentLanguage = lngCode[event.target.value];
       window.localStorage.setItem('currentLanguage', currentLanguage);
+      const { position } = await getGeocoding(currentSearchRequest);
+      localDate = await getTime();
+      setDatePosition({ date: localDate, position });
       setLanguage();
     }
   });
