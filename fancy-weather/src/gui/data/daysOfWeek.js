@@ -18,5 +18,4 @@ const shortDaysOfWeek = [
   { en: 'Sun', ru: 'Сб', be: 'Сб' },
 ];
 
-
 export { daysOfWeek, shortDaysOfWeek };

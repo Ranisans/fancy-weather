@@ -9,7 +9,6 @@ import '../../assets/scss/main.scss';
 import { blocksName } from './constants';
 import DatePositionBlock from './pageBlocks/datePositionBlock';
 
-
 const createGui = () => {
   const main = createElement('main', ['main']);
   document.body.appendChild(main);
