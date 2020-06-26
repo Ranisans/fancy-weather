@@ -11,7 +11,7 @@ module.exports = (env, args) => {
     entry: './fancy-weather/src/index.js',
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, './dist'),
+      path: path.resolve(__dirname, './build'),
     },
     module: {
       rules: [
@@ -96,7 +96,7 @@ module.exports = (env, args) => {
       }),
     ],
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'build'),
       compress: true,
       port: 3000,
       stats: 'errors-only',

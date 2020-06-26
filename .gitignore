@@ -62,6 +62,7 @@ typings/
 
 # npm packaje-lock
 package-lock.json
+yarn.lock
 
 # webpack generated files
-dist/
+build/

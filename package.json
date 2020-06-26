@@ -2,6 +2,7 @@
   "name": "ranisans-rs2019q3",
   "version": "1.0.0",
   "description": "Private repository for @ranisans",
+  "homepage": "https://ranisans.github.io/fancy-weather",
   "main": "webpack.config.js",
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -19,6 +20,7 @@
     "eslint-plugin-import": "^2.18.2",
     "favicons-webpack-plugin": "^1.0.2",
     "file-loader": "^4.2.0",
+    "gh-pages": "^3.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "isomorphic-fetch": "^2.2.1",
@@ -37,6 +39,8 @@
     "clear": "del-cli dist",
     "build": "npm run clear -s && webpack --progress --mode production",
     "lint": "eslint ./fancy-weather/src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "mocha --require @babel/register --require test/init.js --recursive"
   },
   "repository": {
@@ -47,6 +51,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rolling-scopes-school/ranisans-RS2019Q3/issues"
-  },
-  "homepage": "https://github.com/rolling-scopes-school/ranisans-RS2019Q3#readme"
+  }
 }
